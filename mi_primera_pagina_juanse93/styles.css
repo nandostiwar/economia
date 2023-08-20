@@ -1,0 +1,36 @@
+body{
+    background-color: coral;
+    font-family: 'Roboto', sans-serif;
+}
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+}
+
+p{
+    color: white;
+    text-align: justify;
+    /* font-size: 24px; */
+}
+
+div h2{
+    color: aqua;
+}
+
+a, img{
+    display: block;
+}
+
+a{
+    margin: 50px 20px;
+}
+a:hover{
+    color: aqua;
+}
+
+img{
+    width: 70%;
+    margin: auto;
+}
+
+/* IDs y clases en CSS */
+
