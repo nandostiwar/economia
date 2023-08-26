@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         'i': 'z',
         'o': 'w',
         'u': 'k',
-        ' ': 'cero'
+        ' ': '0'
     };
 
     botonJS.addEventListener("click", function () {
