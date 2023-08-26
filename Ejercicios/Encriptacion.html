@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>ENCRIPTACIÓN</h1>
+    <h2>DIGITE TEXTO:</h2>
+    <input type="text" id="entradaJS" value="la casa es azul"><br><br>
+    <input type="submit" id="botonJS" value="Calcular">
+    <br><br>
+    <p id="salidaJS"></p>
+    
+    <script>
+        document.getElementById("botonJS").addEventListener("click", function () {
+            const inputText = document.getElementById("entradaJS").value.toLowerCase();
+            let textoEn = "";
+
+            for (let i = 0; i < inputText.length; i++) {
+                const letra = inputText[i];
+                const letraEn = encryptChar(letra);
+                textoEn += letraEn;
+            }
+
+            document.getElementById("salidaJS").textContent = "Texto encriptado: " + textoEn;
+        });
+
+        function encryptChar(letra) {
+            const letterMap = {
+                'a': 'q', 'b': 'w', 'c': 'e', 'd': 'r', 'e': 't',
+                'f': 'y', 'g': 'u', 'h': 'i', 'i': '0', 'j': 'p',
+                'k': 'a', 'l': 's', 'm': 'd', 'n': 'f', 'o': 'g',
+                'p': 'h', 'q': 'j', 'r': 'k', 's': 'l', 't': 'z',
+                'u': 'x', 'v': 'c', 'w': 'v', 'x': 'b', 'y': 'n',
+                'z': 'm',
+                '0': '5', '1': '9', '2': '8', '3': '7', '4': '6',
+                '5': 'c', '6': 'x', '7': 'v', '8': 'z', '9': 'm'
+            };
+
+            return letterMap[letra] || letra;
+        }
+    </script>
+</body>
+</html>
