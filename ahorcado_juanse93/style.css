@@ -1,0 +1,25 @@
+body {
+    font-family: 'Lato', sans-serif;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: aliceblue;
+}
+#img-ahorcado{
+    width: 20%;
+}
+#img-vidas {
+    width: 20px;
+    display: inline;
+}
+#vidas{
+    display: inline;
+    color: rgb(196, 30, 30);
+    font-size: 25px;
+}
+
+.contenedorLetra{
+    display: none;
+}

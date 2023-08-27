@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Open+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <title>Juego Ahorcado | JuanSe93</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="juego.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Juego del Ahorcado</h1>
+    <img id="img-ahorcado" src="./img/ahorcado.png" alt="">
+
+    <div class="contenedorPalabra" id="contenedorPalabra">
+
+        <h2>Digita una palabra:</h2>
+        <input type="text" id="palabra" placeholder="¡La más complicada!"><br><br>
+        <input type="submit" id="btnEmpezar" value="¡Empezar juego!"><br><br>
+    </div>
+
+    <div class="contenedorLetra" id="contenedorLetra">
+        <p id="salida">letra</p>
+        <input type="text" id="letra" placeholder="Digita una letra..." maxlength="1"><br><br>
+        <input type="submit" id="btnJugar" value="¡Suerte!"><br><br>
+
+        <img src="./img/corazon.png" alt="vidas" id="img-vidas">
+        <p id="vidas">5</p>
+    </div>
+
+</body>
+
+</html>
