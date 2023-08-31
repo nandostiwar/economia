@@ -39,12 +39,12 @@ function suerte() {
     } else {
         let letrasEncontradas = 0
         for (let i = 0; i < palabra.value.length; i++) {
-            if (letra === palabra.value[i]) {
+            if (letra.toLowerCase() === palabra.value[i].toLowerCase()) {
                 letrasEncontradas++
                 console.log("exito: encontraste la letra: " + letra)
                 console.log("letrasEncontradas: " + letrasEncontradas)
                 console.log(palabraGuiones)
-                palabraGuiones = palabraGuiones.replaceAt(i*2, letra)
+                palabraGuiones = palabraGuiones.replaceAt(i*2, letra.toUpperCase())
                 console.log(palabraGuiones)
                 salida.innerHTML = palabraGuiones
                 letra_.value = ''
