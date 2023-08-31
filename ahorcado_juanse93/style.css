@@ -23,3 +23,6 @@ body {
 .contenedorLetra{
     display: none;
 }
+.contenedorReinicio{
+    display: none;
+}
