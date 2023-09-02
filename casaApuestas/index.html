@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>casa de apuestas</title>
+    <script src="validate.js" defer></script>
+</head>
+<style>
+</style>
+
+<body>
+    <h1>Casa de apuestas</h1>
+    <h4 id="saldo">Saldo: </h4>
+    <input type="number" id="numero"><br><br>
+
+    <input type="button" onclick="ingresar_saldo();" id="botonJS" value="Ingresar cantidad">
+    <br><br><br><br>
+
+    <h3>Ingrese opcion a apostar: </h3>
+    <select name="" id="opcion_apuesta">
+        <option value="0">Seleccione</option>
+        <option value="1">25%</option>
+        <option value="2">50%</option>
+        <option value="3">75%</option>
+    </select>
+    <input type="number" id="monto" placeholder="Monto a apostar"><br><br>
+    
+    <br>
+    <input type="button" onclick="ruleta();" id="botonJS" value="Apostar">
+    <br><br>
+
+    <h1 id="titulo"></h1>
+
+    <h2 id="info"></h2>
+</body>
+
+</html>
