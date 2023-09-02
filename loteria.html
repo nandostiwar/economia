@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotería</title>
+    <link rel="stylesheet" href="estiloloteria.css">
+</head>
+<body>
+    <h1>La loteria loca!</h1>
+    <div class="container">
+        <div class="user">
+            <h2>Tus números (elige 5 numeros del 1 al 20):</h2>
+            <input type="number" id="number1" min="1" max="20">
+            <input type="number" id="number2" min="1" max="20">
+            <input type="number" id="number3" min="1" max="20">
+            <input type="number" id="number4" min="1" max="20">
+            <input type="number" id="number5" min="1" max="20">
+            <button id="playButton">Jugar</button>
+        </div>
+        <div class="result">
+            <h2>Resultados:</h2>
+            <p id="message"></p>
+        </div>
+    </div>
+    <script src="logicaloteria.js"></script>
+</body>
+</html>
