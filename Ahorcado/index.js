@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let palabraMostrar = [];
     let historialLetrasUsuario = [];
     let numIntentos = 5;
-    let palabra = document.querySelector('#palabra');
-    let btnInicio = document.querySelector('#btnInicio');
+    let palabra = document.getElementById('palabra');
+    let btnInicio = document.getElementById('btnInicio');
     let letra = document.querySelector('#letra');
     let btnComp = document.querySelector('#boton');
     let resultado = document.querySelector('#resultado');
@@ -19,8 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
         
         for (let letra of palabraAdivinar) {
             palabraMostrar.push('_');
-        }  
+        } 
+        
         dibujarJuego();
+        ocultar();
+    }
+    function ocultar(){
+            palabra.style.display="none";
+            btnInicio.style.display = "none"; 
     }
 
     
