@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuestas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Apuestas</h1>
+<label for="saldoInput">Saldo Inicial:</label>
+<input type="number" id="saldoInput" min="0" step="100" value="1000">
+<button id="setSaldoBtn">Establecer Saldo</button>
+<p>Saldo actual: <span id="saldo">1000</span> pesos</p>
+
+<label for="apuesta1Input">Apuesta para 0-250:</label>
+<input type="number" id="apuesta1Input" min="0" max="1000" step="100" value="100">
+<button id="apuesta1">Apostar</button>
+<p>Resultado apuesta 1: <span id="resultado1"></span></p>
+
+<label for="apuesta2Input">Apuesta para 0-500:</label>
+<input type="number" id="apuesta2Input" min="0" max="1000" step="100" value="100">
+<button id="apuesta2">Apostar</button>
+<p>Resultado apuesta 2: <span id="resultado2"></span></p>
+
+<label for="apuesta3Input">Apuesta para 0-750:</label>
+<input type="number" id="apuesta3Input" min="0" max="1000" step="100" value="100">
+<button id="apuesta3">Apostar</button>
+<p>Resultado apuesta 3: <span id="resultado3"></span></p>
+
+<button id="recargarBtn">Recargar 100</button>
+
+<script src="script.js"></script>
+</body>
+</html>
