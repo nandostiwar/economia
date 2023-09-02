@@ -23,7 +23,7 @@
 </head>
 <body>
     <div>
-        <label for="entradaPalabra">Ingresa la palabra a adivinar: </label>
+        <label for="entradaPalabra" id="lcomenzar">Ingresa la palabra a adivinar: </label>
         <input type="text" id="entradaPalabra" placeholder="Ingresa una palabra">
         <button id="botonComenzar">Comenzar Juego</button>
     </div>
@@ -38,7 +38,7 @@
         let palabraSeleccionada = '';
         let letrasAdivinadas = [];
         let vidasRestantes = 5;
-
+        const lcomenzar= document.getElementById('lcomenzar');
         const botonComenzar = document.getElementById('botonComenzar');
         const entradaPalabra = document.getElementById('entradaPalabra');
         const contenedorJuego = document.getElementById('contenedorJuego');
@@ -62,6 +62,9 @@
         function verificarGanar() {
             if (!contenedorPalabra.textContent.includes('_')) {
                 alert('¡Ganaste!');
+                botonComenzar.style.display='flex';
+                entradaPalabra.style.display='flex';
+                lcomenzar.style.display='flex';
                 reiniciarJuego();
             }
         }
@@ -86,10 +89,14 @@
 
         botonComenzar.addEventListener('click', function() {
             const palabraIngresada = entradaPalabra.value.toLowerCase();
+            
             if (palabraIngresada.length > 0) {
                 palabraSeleccionada = palabraIngresada;
                 actualizarMostrarPalabra();
                 botonComenzar.disabled = true;
+                botonComenzar.style.display='none';
+                entradaPalabra.style.display='none';
+                lcomenzar.style.display='none';
                 contenedorJuego.style.display = 'block';
             }
         });
