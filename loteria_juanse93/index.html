@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Open+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <title>LOTERIA | JuanSe93</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="rifa.js" defer></script>
+</head>
+
+<body>
+
+    <h1>LOTERÍA</h1>
+    <div id="contenedorInicial">
+        <p id="parrafoGuia" >Inicia ingresando tu primer número</p>
+        <input type="text" id="numero" placeholder="Digita un número..." maxlength="2"><br><br>
+        <input type="submit" id="btnAddNum" value="Agregar número"><br>
+    </div>
+    
+    <div id="contenedorNumIngresados">
+        <h3>Números ingresados:</h3>
+        <p id="numIngresados"></p>
+    </div>
+    
+    <div id="contenedorNumJuego">
+        <input type="submit" id="btnJugar" value="¡Suerte!"><br>
+        <h2 id="numerosSistema"></h2>
+        <h3 id="resultado"></h3>
+    </div>
+    <div id="contenedorReinicio">
+        <input type="submit" id="btnReinicio" value="Volver a jugar">
+    </div>
+
+</body>
+
+</html>

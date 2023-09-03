@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>APUESTAS | JuanSe93</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="apuesta.js" defer></script>
+</head>
+
+<body>
+
+    <h1>CASA APUESTAS ONLINE</h1>
+
+    <div id="contInsertarDinero">
+        <h4>$ Dinero:</h2>
+            <input type="number" id="ingrDinero" placeholder="Ingresar dinero"><br><br>
+            <input type="submit" id="btnIngrDinero" value="¡Depositar!"><br><br>
+    </div>
+
+    <div id="contDinero-apuesta">
+        <h3 id="dineroSaldo"></h3>
+        <p>¿Cuánto apuestas?</p>
+        <input type="number" id="dineroApuesta"><br><br>
+        <input type="submit" id="btnApostar" value="Valor de Apuesta"><br><br>
+
+        <h4>Opciones de apuesta:</h4>
+        <div id="opcApuestas">
+            <input type="submit" id="apuesta25" value="25%">
+            <input type="submit" id="apuesta50" value="50%">
+            <input type="submit" id="apuesta75" value="75%">
+        </div>
+        <p id="txtEscogiste"></p>
+        <input type="submit" id="btnSuerte" value="¡Suerte!">
+    </div>
+
+    <div id="contenedorFinal">
+        <h2 id="numSistema"></h2>
+        <h3 id="mensajeResult"></h3>
+        <input type="submit" id="btnVolver" value="¡Volver a jugar!">
+        <input type="submit" id="btnReinicio" value="Reiniciar juego">
+    </div>
+
+</body>
+
+</html>

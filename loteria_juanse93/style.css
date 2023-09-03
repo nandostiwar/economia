@@ -1,0 +1,19 @@
+body {
+    font-family: 'Lato', sans-serif;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: aliceblue;
+}
+
+#contenedorNumJuego{
+    display: none;
+}
+#contenedorNumIngresados{
+    display: none;
+}
+#contenedorReinicio{
+    display: none;
+}
