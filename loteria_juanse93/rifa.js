@@ -40,24 +40,31 @@ function empezar() {
 }
 
 function obtenerNumerosComunes(arr1, arr2) {
-    const set1 = new Set(arr1);
     const numerosComunes = [];
-    for (const elemento of arr2) {
-        if (set1.has(elemento)) {
-            numerosComunes.push(elemento);
+  
+    for (let i = 0; i < arr1.length; i++) {
+        const element1 = arr1[i];
+        for (let j = 0; j < arr2.length; j++) {
+            const element2 = arr2[j];
+            if (element1 == element2) {
+                numerosComunes.push(element1)
+                break
+            }
         }
+        
     }
+
     return numerosComunes;
 }
 
 
 function suerte() {
     arrNumerosSistema = generarNumerosAleatoriosNoRepetidos(0, 20, 10);
-    console.log(arrNumerosSistema)
+    console.log(arrNumerosSistema+" | "+arrNumerosUser)
 
-    const numerosComunes = obtenerNumerosComunes(arrNumerosUser, arrNumerosSistema);
-
-    numerosSistema.innerHTML = numerosComunes
+    var numerosComunes = obtenerNumerosComunes(arrNumerosUser, arrNumerosSistema);
+    console.log(numerosComunes.length)
+    numerosSistema.innerHTML = "Los números en común son: "+numerosComunes
 
     if (numerosComunes.length!==0) {
         resultado.innerHTML="¡Ganaste!"
