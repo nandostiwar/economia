@@ -3,15 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="hangman.js" defer></script>
-    <title>Hangman</title>
+    <title>Juego de Ahorcado</title>
+    <style>
+        /* Estilos CSS para el juego de ahorcado */
+        #ahorcado {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #letras {
+            display: flex;
+            justify-content: center;
+        }
+
+        .letra {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .letra.clicked {
+            background-color: #ccc;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>HANG MAN</h1>
-    <h2>TYPE YOUR SECRET WORD:</h2>
-    <input type="text" id="inputJS" value=""><br><br>
-    <input type="submit" id="submitButtonJS" value="Submit">
-    <br><br> 
-    <p id="secretWordJS"></p>
+    <h1>Juego de Ahorcado</h1>
+    <div id="ahorcado">_ _ _ _ _</div>
+    <div id="letras">
+        <div class="letra" data-letra="A">A</div>
+        <div class="letra" data-letra="B">B</div>
+        <div class="letra" data-letra="C">C</div>
+        <div class="letra" data-letra="D">D</div>
+        <div class="letra" data-letra="E">E</div>
+        <div class="letra" data-letra="F">F</div>
+        <div class="letra" data-letra="G">G</div>
+        <div class="letra" data-letra="H">H</div>
+        <div class="letra" data-letra="I">I</div>
+        <div class="letra" data-letra="J">J</div>
+        <div class="letra" data-letra="K">K</div>
+        <div class="letra" data-letra="L">L</div>
+        <div class="letra" data-letra="M">M</div>
+        <div class="letra" data-letra="N">N</div>
+        <div class="letra" data-letra="O">O</div>
+        <div class="letra" data-letra="P">P</div>
+        <div class="letra" data-letra="Q">Q</div>
+        <div class="letra" data-letra="R">R</div>
+        <div class="letra" data-letra="S">S</div>
+        <div class="letra" data-letra="T">T</div>
+        <div class="letra" data-letra="U">U</div>
+        <div class="letra" data-letra="V">V</div>
+        <div class="letra" data-letra="W">W</div>
+        <div class="letra" data-letra="X">X</div>
+        <div class="letra" data-letra="Y">Y</div>
+        <div class="letra" data-letra="Z">Z</div>
+    </div>
+
+    <script>
+        const palabraSecreta = "AHORCADO";
+        const letrasAdivinadas = new Set();
+        let intentosRestantes = 6;
+
+        // Función para verificar si la letra está en la palabra secreta
+        function verificarLetra(letra) {
+            if (palabraSecreta.includes(letra)) {
+                // La letra está en la palabra secreta
+                letrasAdivinadas.add(letra);
+                actualizarAhorcado();
+            } else {
+                // La letra no está en la palabra secreta
+                intentosRestantes--;
+                if (intentosRestantes === 0) {
+                    alert("¡Has perdido! La palabra secreta era: " + palabraSecreta);
+                    reiniciarJuego();
+                } else {
+                    actualizarAhorcado();
+                }
+            }
+        }
+
+        // Función para actualizar la visualización del ahorcado y las letras adivinadas
+        function actualizarAhorcado() {
+            const ahorcadoDiv = document.getElementById("ahorcado");
+            let palabraMostrada = "";
+            for (const letra of palabraSecreta) {
+                if (letrasAdivinadas.has(letra)) {
+                    palabraMostrada += letra + " ";
+                } else {
+                    palabraMostrada += "_ ";
+                }
+            }
+            ahorcadoDiv.textContent = palabraMostrada;
+
+            const letrasDiv = document.querySelectorAll(".letra");
+            letrasDiv.forEach(div => {
+                const letra = div.getAttribute("data-letra");
+                if (letrasAdivinadas.has(letra)) {
+                    div.classList.add("clicked");
+                } else {
+                    div.classList.remove("clicked");
+                }
+            });
+
+            if (!palabraMostrada.includes("_")) {
+                alert("¡Felicidades! ¡Has ganado!");
+                reiniciarJuego();
+            }
+        }
+
+        // Función para reiniciar el juego
+        function reiniciarJuego() {
+            letrasAdivinadas.clear();
+            intentosRestantes = 6;
+            actualizarAhorcado();
+        }
+
+        // Agregar un evento de clic a cada letra
+        const letrasDiv = document.querySelectorAll(".letra");
+        letrasDiv.forEach(div => {
+            div.addEventListener("click", function() {
+                if (!letrasAdivinadas.has(div.getAttribute("data-letra"))) {
+                    const letra = div.getAttribute("data-letra");
+                    verificarLetra(letra);
+                }
+            });
+        });
+
+        // Inicializar el juego
+        actualizarAhorcado();
+    </script>
 </body>
 </html>

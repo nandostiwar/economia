@@ -1,0 +1,54 @@
+body {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    background-color: #222;
+    color: white;
+}
+
+h1 {
+    color: #ffcc00;
+    font-size: 36px;
+}
+
+#accountBalance {
+    font-weight: bold;
+    font-size: 24px;
+    color: #ffcc00;
+}
+
+form {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    background-color: #ffcc00;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffc400;
+}
+
+input[type="number"] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+}
+
+#result {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-top: 20px;
+}
+
+/* Add more styling as needed for specific elements */

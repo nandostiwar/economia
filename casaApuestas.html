@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="apuestas.css">
+</head>
+<body>
+    <h1>Betting House</h1>
+    <p>Account Balance: $<span id="accountBalance">100</span></p>
+    
+    <form id="betForm">
+        <input type="number" id="addMoneyInput" placeholder="Enter amount to add">
+        <button type="button" onclick="addMoney()">Add Money</button>
+        <input type="number" id="retireMoneyInput" placeholder="Enter amount to retire">
+        <button type="button" onclick="retireMoney()">Retire Money</button>
+        
+        <h2>Select Bet:</h2>
+        <input type="number" id="betAmount" placeholder="Enter bet amount">
+        <button type="button" onclick="placeBet(25)">25% Bet</button>
+        <button type="button" onclick="placeBet(50)">50% Bet</button>
+        <button type="button" onclick="placeBet(75)">75% Bet</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script src="apuestas.js"></script>
+</body>
+</html>
