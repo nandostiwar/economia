@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotería</title>
+    <link rel="stylesheet" href="loteria.css">
+</head>
+<body>
+    <h1>Lotería</h1>
+    <div class="user">
+        <h2>Elija 5 números del 1 al 20:</h2>
+        <input type="number" id="number1" min="1" max="20">
+        <input type="number" id="number2" min="1" max="20">
+        <input type="number" id="number3" min="1" max="20">
+        <input type="number" id="number4" min="1" max="20">
+        <input type="number" id="number5" min="1" max="20">
+        <div id="NumerosUsuario"></div>
+    </div>
+    <div class="machine">
+        <h2>Números de la máquina:</h2>
+        <div id="NumerosMaquina"></div>
+    </div>
+    <div id="Resultado"></div>
+    <button id="BotonInicio">Jugar</button>
+    <script src="loteria.js"></script>
+</body>
+</html>
