@@ -59,6 +59,7 @@ function obtenerNumerosComunes(arr1, arr2) {
 
 
 function suerte() {
+    btnJugar.style.display="none"
     arrNumerosSistema = generarNumerosAleatoriosNoRepetidos(0, 20, 10);
     console.log(arrNumerosSistema+" | "+arrNumerosUser)
 
