@@ -1,0 +1,58 @@
+body{
+  background-image: url("https://www.nationalgeographic.com.es/medio/2023/02/24/simbolos-y-signos-del-zodiaco_8c4c2de9_230224121056_1280x853.jpg");
+  background-position: 0;
+  background-repeat:no-repeat;
+  background-size: cover;
+  color: #FFFFFF;
+}
+
+
+.white-with-blue-shadow, h3 {
+  font-family: sans-serif;
+  font-weight: 900;
+  text-shadow:
+    1px 1px 2px black,
+    0 0 2em blue,
+    0 0 0.4em blue;
+  color: white;
+  margin-bottom: 20px;
+}
+
+#root {
+  max-width: 1280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} 
+
+.container{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.btn 
+{
+margin-top: 20px;
+ outline:0;
+ border:none;
+ border-top:none;
+ border-bottom:none;
+ border-left:none;
+ border-right:none;
+ box-shadow:inset 2px -3px rgba(0,0,0,0.15);
+}
+.btn:focus
+{
+ outline:0;
+ -webkit-outline:0;
+ -moz-outline:0;
+}
