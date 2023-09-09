@@ -1,0 +1,25 @@
+.login{
+    place-items: center;
+    width: auto;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid black;
+    color: black;
+    background-color: azure;
+    
+    
+}
+input{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.login-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Ajusta la altura según tus preferencias */
+}
+button{
+    margin: 10px;
+}

@@ -1,0 +1,18 @@
+.tarjeta{
+    width: 400px;
+    border-radius: 20px;
+    background-color: rgb(170, 170, 170);
+    text-align: center;
+    border: 2px solid black;
+    color: black; 
+}
+.icon{
+    margin-top: 5px;
+}
+img {
+    width: 25%; /* Reduce el ancho al 50% */
+    height: auto; /* Ajusta automáticamente la altura para mantener la proporción original */
+  }
+.p{
+    margin: 5px;
+}

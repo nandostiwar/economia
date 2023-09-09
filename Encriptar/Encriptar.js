@@ -11,20 +11,16 @@ botonJS.addEventListener("click", function() {
 
 function encriptarTexto(texto) {
     const valores = {
-        'a': 'x',
-        'e': 'y',
-        'i': 'z',
-        'o': 'w',
-        'u': 'k',
-        ' ': ''
+        'a': 'x', 'e': 'y', 'i': 'z','o': 'w','u': 'k'
     };
 
-    let result = '';
+    let resultado = '';
+    texto = texto.replace(/ /g, '');
 
     for (let i = 0; i < texto.length; i++) {
         const caracter = texto[i].toLowerCase();
-        result += valores[caracter] || texto[i];
+        resultado += valores[caracter] || texto[i];
     }
 
-    return result;
+    return resultado;
 }

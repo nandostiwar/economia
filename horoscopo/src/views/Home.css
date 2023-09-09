@@ -1,0 +1,10 @@
+.home{
+    background-color: #242424;
+    text-align: center;
+}
+.tarjetas{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    object-position: center;
+}
