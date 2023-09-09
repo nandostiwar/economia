@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2 id="saldo">Saldo: $</h2> <h2 ></h2>
+
+    <p>Digite el valor a recargar</p>
+    <input type="number" name="valor" id="valor">
+    <button id="recarga" onclick="recargar()">Recargar Saldo</button>
+
+
+
+
+
+
+    <h1>Apuesta</h1>
+    <p>Si deseas apostar, elige un numero del 1 al 3
+        <br>
+        <br>
+        <br>
+        
+        <b>Recuerda que!!!</b>
+        <br> 
+        si eliges el <b>1</b>, tienes un 25% de probabilidades de ganar, si ganas, tu monto apostado sera multiplicado x3
+        <br>
+        si eliges el <b>2</b>, tienes un 50% de probabilidades de ganar, si ganas, tu monto apostado sera multiplicado x2
+        <br>
+        si eliges el <b>2</b>, tienes un 75% de probabilidades de ganar, si ganas, tu monto apostado sera multiplicado x1.5
+        <br>
+        <br>
+        <br>
+    </p>
+    <h5>Digita el valor que quieres apostar y selecciona el nivel de apuesta</h5>
+    <input type="number" name="vapu" id="vapu">
+    <select name="select">
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+    <option value="3">3</option>
+    </select>
+    <button onclick="apostar()">Apostar!!</button>
+
+
+    <script>
+
+    function obtenerNumerosDelSaldo() {
+        const saldoElement = document.getElementById('saldo');
+        const saldoText = saldoElement.textContent;
+        const numerosEnSaldo = saldoText.match(/\d+/);
+
+        if (numerosEnSaldo) {
+            const saldoNumerico = parseInt(numerosEnSaldo[0], 10);
+            return saldoNumerico;
+        } else {
+            console.log('No se encontraron números en el saldo.');
+            return null; 
+        }
+    }
+
+
+    function recargar() {
+        const valor = document.getElementById('valor').value;
+        const saldoNumerico = obtenerNumerosDelSaldo(); // Obtener el saldo en una variable
+
+        if (saldoNumerico !== null) {
+            const nuevoSaldo = saldoNumerico + parseInt(valor, 10);
+            document.getElementById('saldo').textContent = `Saldo: $${nuevoSaldo}`;
+        } else {
+            const saldoElement = document.getElementById('saldo');
+            saldoElement.textContent = `Saldo: $${valor}`;
+        }
+    }
+
+function apostar() {
+    const lv = document.getElementById('select').value;
+    
+    const valor = document.getElementById('vapu').value;
+    
+    const saldoNumerico = obtenerNumerosDelSaldo();
+    
+    const numeroAleatorio = generarNumeroAleatorio();
+
+    const resultadoElement = document.getElementById('resultado');
+
+    if (valor > saldoNumerico) {
+        alert('No tienes saldo disponible');
+    } else {
+        switch (lv) {
+            case "1":
+                
+                if(numeroAleatorio<=250){
+                    alert('ganaste, el numero es:'+numeroAleatorio )
+                }else{
+                    alert('has perdido :()')
+                }
+
+                break;
+            case "2":
+                resultadoElement.textContent = "Seleccionaste la Opción 2. Realizar acción 2.";
+                break;
+            case "3":
+                resultadoElement.textContent = "Seleccionaste la Opción 3. Realizar acción 3.";
+                break;
+            default:
+                resultadoElement.textContent = "Selecciona una opción válida.";
+        }
+    }
+}
+
+    
+     function generarNumeroAleatorio() {
+        const numeroDecimal = Math.random();
+
+        const numeroEntre0Y1000 = numeroDecimal * 1000;
+
+        const numeroEntre1Y1000 = Math.floor(numeroEntre0Y1000) + 1;
+
+        return numeroEntre1Y1000;
+    }
+
+
+
+    </script>
+
+
+
+</body>
+</html>

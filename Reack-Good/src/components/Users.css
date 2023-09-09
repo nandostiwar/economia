@@ -1,0 +1,43 @@
+/* User.css */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #121212;
+    /* Fondo oscuro */
+    color: #ffffff;
+    /* Texto blanco */
+}
+
+.select-box {
+    margin-bottom: 20px;
+}
+
+.select-box select {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.signo-container {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.signo-container h1 {
+    font-size: 24px;
+    color: #ffffff;
+    /* Texto blanco */
+}
+
+.signo-container h2 {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #ffcc00;
+    /* Texto amarillo */
+}
+
+.signo-container p {
+    font-size: 16px;
+    color: #ffffff;
+    /* Texto blanco */
+}

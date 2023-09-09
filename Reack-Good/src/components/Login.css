@@ -1,0 +1,85 @@
+.login-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #421111;
+    text-align: center;
+    /* Centrar el texto dentro del contenedor */
+}
+
+.perro {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: center;
+    /* Centrar el contenido del div */
+}
+
+/* Estilos para los campos de entrada */
+.label-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+
+
+input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #777;
+    border-radius: 3px;
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+}
+
+button {
+    width: 95%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.dark-mode {
+    background-color: #000;
+}
+
+
+.dark-mode label {
+    color: #fff;
+}
+
+.dark-mode input {
+    border: 1px solid #aaa;
+    background-color: #111;
+    color: #fff;
+}
+
+.dark-mode button {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode button:hover {
+    background-color: #333;
+}
