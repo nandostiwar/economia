@@ -48,8 +48,7 @@ function placeBet(percent) {
         document.getElementById("result").textContent = `You lost $${betAmount}. (Machine selected ${randomNumber})`;
     }
 
-    // Clear the bet amount input field
     betAmountInput.value = "";
 }
 
-updateBalance(); // Initialize the balance display
+updateBalance();

@@ -1,0 +1,10 @@
+.App h1 {
+  text-align: center;
+}
+
+.Container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}

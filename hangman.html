@@ -70,14 +70,11 @@
         const letrasAdivinadas = new Set();
         let intentosRestantes = 6;
 
-        // Función para verificar si la letra está en la palabra secreta
         function verificarLetra(letra) {
             if (palabraSecreta.includes(letra)) {
-                // La letra está en la palabra secreta
                 letrasAdivinadas.add(letra);
                 actualizarAhorcado();
             } else {
-                // La letra no está en la palabra secreta
                 intentosRestantes--;
                 if (intentosRestantes === 0) {
                     alert("¡Has perdido! La palabra secreta era: " + palabraSecreta);
@@ -88,7 +85,6 @@
             }
         }
 
-        // Función para actualizar la visualización del ahorcado y las letras adivinadas
         function actualizarAhorcado() {
             const ahorcadoDiv = document.getElementById("ahorcado");
             let palabraMostrada = "";
@@ -117,14 +113,12 @@
             }
         }
 
-        // Función para reiniciar el juego
         function reiniciarJuego() {
             letrasAdivinadas.clear();
             intentosRestantes = 6;
             actualizarAhorcado();
         }
 
-        // Agregar un evento de clic a cada letra
         const letrasDiv = document.querySelectorAll(".letra");
         letrasDiv.forEach(div => {
             div.addEventListener("click", function() {
@@ -135,7 +129,6 @@
             });
         });
 
-        // Inicializar el juego
         actualizarAhorcado();
     </script>
 </body>

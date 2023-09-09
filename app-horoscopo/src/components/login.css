@@ -1,0 +1,43 @@
+.Form {
+    border-radius: 20px;
+    width: 500px;
+    padding: 10px;  
+    text-align: center;
+    border: 2px solid #444444;
+    box-shadow: 2px 2px 5px #fcfcfc;
+    background-color: #042454;
+    color: #fcfcfc;
+    font-size: 16px;
+}
+
+.LoginButton {
+    border-radius:35px;
+    background-color:#d562d3;
+    border-color: #d8d8d8;
+    border-width: 3px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.LoginButton:hover {
+    border-radius:40px;
+    background-color:#891d87;
+    border-color: #d8d8d8;
+    border-width: 5px;
+}
+
+.LoginInput {
+    background-color: #fcfcfc;
+    border-width: 3px;
+    border-color: #d8d8d8;
+    color: #000000;
+    border-radius:35px;
+}
+
+.LoginInput:hover {
+    background-color: #3bd179;
+}
