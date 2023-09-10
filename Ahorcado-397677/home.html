@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ahorcado.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&family=Varela+Round&display=swap" rel="stylesheet">
+    
+    <title>Ahorcado</title>
+</head>
+<body>
+    
+    <section id="Seleccionar-palabra">
+
+        <h1>Escriba una palabra a adivinar</h1>
+
+         <p><input id="palabra-adivinar" type="text" class="cajas" value="" placeholder="Pon una palabra"></p>
+
+        <button id="Confirmar-palabra" class="botones">Confirmar</button>
+
+        <section id="mis-mensajes">
+        <p>Pd:Los power-ups, no está disponibles</p>
+        <p>Pd: Cada partida tiene un ambiente músical único</p>
+        <p>Made with 💖 by: camilo valencia-397677</p>
+    </section>
+
+    </section>
+
+
+
+    <section id="Adivinar-palabra-sec">
+
+        <section class="ingame">
+        
+            <div  id=powers>
+
+                
+                <input type="image"  id="look" class ="hearth" src="./sprites/ExportedIcons/Icon_Look.png">
+                <input type="image"  id="lock" class ="hearth" src="./sprites/ExportedIcons/Icon_Lock.png">
+                
+            </div>
+  
+            <div  id="Información-partida">
+
+                    <h1>Adivina la palabra</h1>
+
+                    <p id="boy">
+
+                        <img src="./sprites/Boy/0.png">
+
+                    </p>
+                <section id="player">
+                    <p><input type="text" class="cajas" id="letra-results" maxlength="1" placeholder="Inserta una letra">
+                    <button class="botones" id="guess">Adivinar</button></p>
+                </section>
+                    <p><span id="cajas"></span></p>
+
+                    <div id="sec-coras">
+
+                        
+                            <img src="./sprites/ExportedIcons/Icon_Heart.png" class="hearth">
+                            <img src="./sprites/ExportedIcons/Icon_Heart.png" class="hearth">
+                            <img src="./sprites/ExportedIcons/Icon_Heart.png" class="hearth">
+                            <img src="./sprites/ExportedIcons/Icon_Heart.png" class="hearth">
+                            <img src="./sprites/ExportedIcons/Icon_Heart.png" class="hearth">
+
+                    </div>
+
+                    <div id="sec-well">
+
+                        
+                            
+                                
+                            
+
+                    </div>
+
+                    <p><span id="vidas-jugador">0</span></p>
+
+            </div>
+
+            <div id="config">
+
+                <audio id="sound" autoplay>
+                    <source src="" type="audio/mpeg">
+                </audio>
+
+                        
+               
+                <input type="image"  id="turn_music" class ="hearth" src="./sprites/ExportedIcons/Icon_SoundOff.png">
+            </div>
+
+        </section>
+
+    </section>
+    
+    <script src="ahorcadoJS.js"></script>     
+</body>
+</html>
