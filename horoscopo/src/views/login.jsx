@@ -3,7 +3,7 @@ import './login.css'
 import usuario from '../data/Usuarios'
 
 
-function Login(setValidador) {
+function Login() {
   
    const [user,setUser] = useState("")
    const [password,setPassword] = useState("")

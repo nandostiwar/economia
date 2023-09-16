@@ -1,30 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Login from './views/login.jsx';
 import Home from './views/Home.jsx'
 import Admin from './views/AdminView'
+import Horoscopo from './data/horoscopo';
 
 
+function Main(){
+  
+  const [data,setData]=useState(Horoscopo)
 
-const router = createBrowserRouter([{
-  path:"/",
-  element : <Login/> ,
+  
+
+  const router = createBrowserRouter([{
+    path:"/",
+    element : <Login/> ,
   },
   {
     path: "/home",
-    element: <Home/>
+    element: <Home />
   },
   {
     path: "/admin-view",
-    element: <Admin/>
+    element: <Admin />
   }
-])
+  ])
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router = {router} />
-  </React.StrictMode>,
-)
+  return (<React.StrictMode>
+          <RouterProvider router = {router} />
+          </React.StrictMode>
+          )
+}
+
+
+
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Main/>)
+
