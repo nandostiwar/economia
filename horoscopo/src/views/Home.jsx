@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Tarjeta from "../componentes/tarjeta"
 import horoscopo from '../data/horoscopo'
 import "./Home.css"
-import {  Table,Button,Container, Modal, ModalHeader, ModalBody, FormGroup, ModalFooter,} from "reactstrap"
+import {  Modal,ModalBody, FormGroup, ModalFooter,} from "reactstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 

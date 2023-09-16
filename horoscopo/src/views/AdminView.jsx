@@ -2,7 +2,7 @@ import React from 'react'
 import {  Table,Button,Container, Modal, ModalHeader, ModalBody, FormGroup, ModalFooter,} from "reactstrap";
 import horoscopo from "../data/horoscopo"
 import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function AdminView() {
