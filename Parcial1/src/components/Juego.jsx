@@ -1,5 +1,6 @@
 import React from 'react'
 import Buttons from './buttons';
+import './Juego.css'
 
 function Juego() {
 
@@ -57,22 +58,23 @@ const Back = (e) =>
   
 
   return (
-    <div>
+    <div className='contain'>
 
-        Juego
+            <h1>Buscaminas</h1>
 
-     
+     <div className='box'>
             <Buttons id="1" texto="1" funcion={handleClick}/>
             <Buttons id="2" texto="2" funcion={handleClick}/>
             <Buttons id="3" texto="3" funcion={handleClick}/>
             <Buttons id="4" texto="4" funcion={handleClick}/>
             <Buttons id="5" texto="5" funcion={handleClick}/>
         
-        
+            </div>
+            <div className='menu'>  
 
             <Buttons id="replay" texto="Volver a jugar" funcion={reload}/>
             <Buttons id="back" texto="Regresar" funcion={Back}/>
-        
+            </div> 
     </div>
   )
 }

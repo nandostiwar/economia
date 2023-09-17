@@ -1,24 +1,15 @@
-.container
+.form
 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50% auto;
-    align-items: start;
-    align-content: stretch;
-    justify-items: center;
-    
-   
-   
-    padding-bottom: 30px;
-
     background-color: rgb(19, 19, 19);
     border-radius: 30px;
+    padding-block: 20px;
+    padding-inline: 100px;
+
+  
     border-width: 1px;
     border-style: solid;
     border-color: rgb(100, 100, 255);
     filter: drop-shadow(0px 0px 10px rgb(100, 100, 255));
-   
-    
 }
 
 input
@@ -28,6 +19,5 @@ input
     height: 20px;
     width: max-content;
     padding-left: 10px;
-    
     margin-bottom: 10px;
 }
