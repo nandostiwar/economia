@@ -1,0 +1,31 @@
+form{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+
+    padding-left: 88px;
+    padding-right: 88px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    border: solid;
+    border-width: 1px;
+    border-color: #876cff;
+    border-radius: 30px;
+    background-color: rgb(44, 44, 44);
+
+    
+    filter: drop-shadow(0 0 10px #2600ffaa);
+
+}
+
+input
+{
+    border-radius: 30px;
+    border: hidden;
+    height: 20px;
+}

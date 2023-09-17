@@ -1,0 +1,22 @@
+img
+{
+    width: 30px ;
+    filter: drop-shadow(0 0 0.6em rgb(255, 255, 255));
+}
+.container
+{
+    background-color: rgb(58, 58, 58);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-block: 30px;
+    margin-inline: 30px;
+    width: auto;
+    border-radius: 60px;
+    filter: drop-shadow(0 0 0.6em rgb(33, 33, 185));
+}
+.container:hover
+{
+    background-color: darksalmon;
+}

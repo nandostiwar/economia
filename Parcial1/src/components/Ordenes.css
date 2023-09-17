@@ -1,0 +1,15 @@
+.card
+{
+    padding-block: 10px;
+    padding-inline: 10px;
+    border-radius: 30px;
+    margin-block: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    width: auto;
+    height: auto;
+}
