@@ -1,0 +1,24 @@
+.Card {
+    display: inline-block;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #f1f1f133;
+    background-color: #c8d4ed;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #ffffff5c;
+    margin: 30px 30px;
+  }
+  p{
+    display: block;
+  }
+
+  .pendiente {
+    background-color: rgb(252, 76, 76);
+    color: white;
+  }
+  
+  .entregado {
+    background-color: rgb(161, 249, 161);
+    color: black;
+  }

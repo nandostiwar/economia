@@ -1,0 +1,10 @@
+.card-mina{
+    margin: 10px;
+    padding: 10px;
+    width: 90px;
+    font-size: x-large;
+}
+.container{
+    display: block;
+    flex-direction: column;
+}

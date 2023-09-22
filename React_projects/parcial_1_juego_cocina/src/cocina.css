@@ -1,0 +1,21 @@
+h1{
+    display: block;
+}
+.container{
+    display: flex;
+}
+.subContainer1{
+    flex: 1;
+    padding: 20px;
+}
+.subContainer2{
+    flex: 2;
+    padding: 20px;
+}
+h2{
+    display: inline-block;
+}
+input{
+    display: inline-block;
+    margin: 15px;
+}
