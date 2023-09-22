@@ -43,11 +43,11 @@ const Juego = () => {
                     <CardJuego key={i + 1} num={i + 1} esMina={minas.includes(i + 1)} />
                 ))}
             </div>
-            <br />
+            <br /> <br /> <br /> <br />
  
-            <input type="button" value="VOLVER A JUGAR" onClick={handleReiniciarJuego} />
+            <button type="button" onClick={handleReiniciarJuego}>VOLVER A JUGAR</button>
             <Link to="/" >
-                <input type="button" value="REGRESAR" />
+                <button type="button">REGRESAR</button>
             </Link>
         </div>
     )

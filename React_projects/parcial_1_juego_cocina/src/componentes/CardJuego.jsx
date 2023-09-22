@@ -50,8 +50,8 @@ function CardJuego({ num = 0, esMina }) {
         style={{ backgroundColor: color }}
         onClick={handleClick}
       />
-      {(validarPerdidas()) ? <h4> "¡Perdiste!" </h4> : ""}
-      {(validarGanadas()) ? <h4> "¡Ganaste!" </h4> : ""}
+      {(validarPerdidas()) ? <h4> ¡Perdiste! </h4> : ""}
+      {(validarGanadas()) ? <h4> ¡Ganaste! </h4> : ""}
     </div>
   );
 }
