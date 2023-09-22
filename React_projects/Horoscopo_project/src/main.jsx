@@ -5,17 +5,22 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import definitios from './data/definitions.js'
 import VistaSignos from './views/VistaSignos.jsx'
+import VistaHome from './views/VistaHome.jsx'
 
 const routes = [
   {
     path: "/",
     element: <App />
+  },
+  {
+    path: "VistaHome",
+    element: <VistaHome />
   }
 ]
 
 definitios.forEach((definitions) => {
   routes.push({
-    path: definitions.name,
+    path: "/VistaHome/"+definitions.name,
     element: <VistaSignos definitions={definitions}/>
   })
 })

@@ -6,6 +6,9 @@ body{
   color: #FFFFFF;
 }
 
+.title{
+  display: block;
+}
 
 .white-with-blue-shadow, h3 {
   font-family: sans-serif;

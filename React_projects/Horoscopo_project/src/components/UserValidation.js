@@ -9,5 +9,6 @@ export function userValidation (prUser,prPass){
     console.log('Credenciales incorrectas');
     return false
   }
-    
 }
+
+export default userValidation
