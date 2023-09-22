@@ -1,0 +1,53 @@
+.cocina-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .pedido-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    margin: 5px;
+    padding: 5px;
+  }
+  
+  button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .lista-pedidos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .pedido.pendiente {
+    border-color: red;
+  }
+  
+  .pedido.entregado {
+    border-color: green;
+  }
+  
+  
