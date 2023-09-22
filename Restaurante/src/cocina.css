@@ -1,0 +1,44 @@
+/* Estilos para el contenedor principal */
+.container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 50vh; /* Asegura que ocupe toda la altura de la ventana */
+}
+
+/* Contenido dentro del contenedor */
+.contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1200px; /* Establece un ancho máximo para evitar que el contenido se expanda demasiado */
+    width: 100%; /* Asegura que el contenido no supere el ancho máximo */
+}
+
+/* Estilos para el formulario */
+.formulario {
+    width: 30%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las tarjetas */
+.tarjetas {
+    width: 60%;
+}
+
+.card {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
