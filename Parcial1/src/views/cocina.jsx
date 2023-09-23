@@ -31,11 +31,16 @@ function Cocina() {
     });
   };
 
+  const regresar =()=>{
+    window.location="/"
+  } 
   
   const Estado = (indicador) => {
     const nuevosPedidos = [...pedidos];
-    nuevosPedidos[indicador].Estado = nuevosPedidos[indicador].Estado === "Pendiente" ? "Entregado" : "Pendiente";
-    setPedidos(nuevosPedidos);
+    if(nuevosPedidos[indicador].Estado==="Pendiente"){
+      nuevosPedidos[indicador].Estado = nuevosPedidos[indicador].Estado === "Pendiente" ? "Entregado" : "Pendiente";
+      setPedidos(nuevosPedidos);
+    }else alert("El pedido ya se entrego")
   };
 
   return (
@@ -64,6 +69,8 @@ function Cocina() {
         />
         <br />
         <button onClick={handleSubmit}>Guardar Pedido</button>
+        <br />
+        <button type="button" onClick={regresar}>Regresar</button>
 
         {pedidos.length > 0 && (
         <p>Pedido registrado con éxito con el número de turno: {regis.Turno - 1}</p>
