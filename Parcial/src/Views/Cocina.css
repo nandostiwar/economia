@@ -1,0 +1,78 @@
+/* Estilos para el contenedor principal */
+.cocina-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilos para el formulario de pedidos */
+.pedido-form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+}
+
+/* Estilos para los elementos del formulario */
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select {
+    margin: 5px;
+    padding: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos para la lista de pedidos */
+.pedidos-list {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.pedido-item {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pedido-item.pendiente {
+    background-color: #ff0000;
+    /* Rojo para pedidos pendientes */
+    color: white;
+}
+
+.pedido-item.entregado {
+    background-color: #00ff00;
+    /* Verde para pedidos entregados */
+    color: black;
+}
+
+/* Estilos para el botón Regresar */
+.regresar-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    /* Rojo para el botón Regresar */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

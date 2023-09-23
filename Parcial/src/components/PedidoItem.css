@@ -1,0 +1,41 @@
+/* PedidoItem.css */
+
+.pedido-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pedido-item:hover {
+    background-color: #e0e0e0;
+}
+
+.pendiente {
+    background-color: #ffc107;
+    /* Amarillo para pedidos pendientes */
+}
+
+.entregado {
+    background-color: #28a745;
+    /* Verde para pedidos entregados */
+}
+
+.pedido-item p {
+    margin: 0;
+}
+
+.boton-pendiente {
+    background-color: #ffc107;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.boton-pendiente:hover {
+    background-color: #e0a800;
+}
