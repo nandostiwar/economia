@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Navigate, Routes } from 'react-router-dom';
 import './App.css';
-import Login from './components/Login';
-import Content from './components/zodiaco';
-import { zodiacSigns } from './zodiaco';
+import LoginForm from './LoginForm';
+import Ruta from './Ruta';
 
 function App() {
-  const signsList = zodiacSigns.map(sign => {
-    return (
-      <Content name={sign.name} date={sign.date} description={sign.description} image={sign.image} />
-    )
-  })
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [redirectPath, setRedirectPath] = useState(null);
+
+  const handleLogin = (path) => {
+    setLoggedIn(true);
+    setRedirectPath(path);
+  };
 
   return (
-    <div className='App'>
-      <h1>Horoscope App</h1>
-      <div className='Container'>
-        <Login />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/login" element={!loggedIn ? <LoginForm onLogin={handleLogin} /> : <Navigate to={redirectPath || '/'} />} />
+        <Route path="/*" element={<Ruta />} />
+      </Routes>
+    </Router>
   );
 }
 

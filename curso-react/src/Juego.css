@@ -1,0 +1,69 @@
+.casilla.mina-explotada {
+  background-color: red;
+  color: white;
+  border: 1px solid black;
+}
+
+.juego-container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.tablero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.casilla {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  margin: 0 5px;
+  font-size: 20px;
+}
+
+.casilla.mina {
+  background-color: #f00;
+}
+
+.casilla.seleccionada.safe {
+  background-color: #8bc34a;
+}
+
+.resultado {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #f00;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.casilla.seleccionada {
+  background-color: #8bc34a;
+}
+
+.casilla.mina.seleccionada {
+  background-color: #f00;
+}
