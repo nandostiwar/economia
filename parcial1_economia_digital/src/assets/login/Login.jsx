@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css"; 
 
 function Login() {
   const [user, setUser] = useState("");
@@ -17,7 +18,8 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login-container">
+      <h1>LOGIN</h1> 
       <input
         type="text"
         placeholder="Usuario"

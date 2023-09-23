@@ -3,68 +3,70 @@ import { useNavigate } from 'react-router-dom';
 import './Juego.css';
 
 function Juego() {
-const navigate = useNavigate();
-const [gameStarted, setGameStarted] = useState(false);
-const [mines, setMines] = useState([]);
-const [revealedBoxes, setRevealedBoxes] = useState(0);
-const [boxStates, setBoxStates] = useState(Array(5).fill('hidden'));
-const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+  const [juegoIniciado, setJuegoIniciado] = useState(false);
+  const [minas, setMinas] = useState([]);
+  const [cajasReveladas, setCajasReveladas] = useState(0);
+  const [estadosCaja, setEstadosCaja] = useState(Array(5).fill('oculta'));
+  const [mensaje, setMensaje] = useState('');
 
-const handlePlayClick = () => {
-    setGameStarted(true);
-    setMessage('');
-    setRevealedBoxes(0);
-    setBoxStates(Array(5).fill('hidden'));
+  const manejarClicComenzar = () => {
+    setJuegoIniciado(true);
+    setMensaje('');
+    setCajasReveladas(0);
+    setEstadosCaja(Array(5).fill('oculta'));
 
-    const newMines = [];
-    while (newMines.length < 2) {
-    const randomIndex = Math.floor(Math.random() * 5);
-    if (!newMines.includes(randomIndex)) {
-        newMines.push(randomIndex);
+    const nuevasMinas = [];
+    while (nuevasMinas.length < 2) {
+      const indiceAleatorio = Math.floor(Math.random() * 5);
+      if (!nuevasMinas.includes(indiceAleatorio)) {
+        nuevasMinas.push(indiceAleatorio);
+      }
     }
-    }
-    setMines(newMines);
-};
+    setMinas(nuevasMinas);
+  };
 
-const handleBoxClick = (index) => {
-    if (gameStarted && boxStates[index] === 'hidden') {
-    const newBoxStates = [...boxStates];
-    if (mines.includes(index)) {
-        newBoxStates[index] = 'mine';
-        setMessage('Has perdido');
-        setGameStarted(false);
-    } else {
-        newBoxStates[index] = 'safe';
-        setRevealedBoxes((prev) => prev + 1);
-        if (revealedBoxes === 2) {
-        setMessage('Has ganado');
-        setGameStarted(false);
+  const manejarClicCaja = (indice) => {
+    if (juegoIniciado && estadosCaja[indice] === 'oculta') {
+      const nuevosEstadosCaja = [...estadosCaja];
+      if (minas.includes(indice)) {
+        nuevosEstadosCaja[indice] = 'mina';
+        setMensaje('Has perdido');
+        setJuegoIniciado(false);
+      } else {
+        nuevosEstadosCaja[indice] = 'segura';
+        setCajasReveladas((prev) => prev + 1);
+        if (cajasReveladas === 2) {
+          setMensaje('Has ganado');
+          setJuegoIniciado(false);
         }
+      }
+      setEstadosCaja(nuevosEstadosCaja);
     }
-    setBoxStates(newBoxStates);
-    }
-};
+  };
 
-return (
-    <div className="game-container">
-    <div className="boxes-container">
-        {boxStates.map((state, index) => (
-        <div
-            key={index}
-            className={`box ${state}`}
-            onClick={() => handleBoxClick(index)}
-        ></div>
+  return (
+    <div className="juego-container">
+      <h1>JUEGO DE BUSCAS MINAS</h1>
+      <div className="cajas-container">
+        {estadosCaja.map((estado, indice) => (
+          <div
+            key={indice}
+            className={`caja ${estado}`}
+            onClick={() => manejarClicCaja(indice)}
+          ></div>
         ))}
-    </div>
-    <p>{message}</p>
-    <div className="buttons-container">
+      </div>
+      <p>{mensaje}</p>
+      <div className="botones-container">
         <button onClick={() => navigate(-1)}>Regresar</button>
-        <button onClick={handlePlayClick}>
-        {gameStarted ? 'Volver a jugar' : 'Jugar'}
+        <button onClick={manejarClicComenzar}>
+          {juegoIniciado ? 'Volver a jugar' : 'Jugar'}
         </button>
+      </div>
     </div>
-    </div>
-);
+  );
+  
 }
 
 export default Juego;

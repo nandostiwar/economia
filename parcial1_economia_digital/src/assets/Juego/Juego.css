@@ -1,4 +1,4 @@
-.game-container {
+.juego-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,29 +6,36 @@
     height: 100vh;
   }
   
-.boxes-container {
+
+  .cajas-container {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-}
+  }
+  
 
-.box {
+  .caja {
     width: 50px;
     height: 50px;
     border: 1px solid black;
     background-color: #f0f0f0;
     cursor: pointer;
-}
+  }
+  
 
-.box.safe {
+  .caja.segura {
     background-color: green;
-}
+  }
+  
 
-.box.mine {
+  .caja.mina {
     background-color: red;
-}
+  }
+  
 
-.buttons-container {
+  .botones-container {
     display: flex;
     gap: 10px;
-}
+  }
+  
+  

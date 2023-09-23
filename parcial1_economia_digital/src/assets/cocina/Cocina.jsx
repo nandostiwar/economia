@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import './Cocina.css';
 import { useNavigate } from 'react-router-dom';
-
 
 class Pedido {
   constructor(turno, mesa, mesero, pedido) {
@@ -24,6 +23,7 @@ function Cocina() {
   const [pedido, setPedido] = useState('');
   const [pedidos, setPedidos] = useState([]);
   const navigate = useNavigate();
+  const pedidosContainerRef = useRef(); 
 
   const agregarPedido = () => {
     if (mesa && mesero && pedido) {
@@ -44,6 +44,7 @@ function Cocina() {
   return (
     <div className="cocina-app">
       <div className="pedido-form">
+        <h2>CREAR PEDIDO</h2> 
         <input
           type="text"
           placeholder="Mesa"
@@ -65,17 +66,24 @@ function Cocina() {
         <button onClick={agregarPedido}>Hacer Pedido</button>
         <button onClick={() => navigate(-1)}>Regresar</button>
       </div>
-      <div className="lista-pedidos">
+
+      <div className="lista-pedidos" ref={pedidosContainerRef}>
         {pedidos.map((pedido, index) => (
           <div key={index} className={`pedido ${pedido.estado}`}>
             <div>
-                <span>Turno: {pedido.turno}</span>
+              <span>Turno: {pedido.turno}</span>
+            </div>
+            <div>
               <span>Mesa: {pedido.mesa}</span>
+            </div>
+            <div>
               <span>Mesero: {pedido.mesero}</span>
             </div>
-            <div>{pedido.pedido}</div>
+            <div>
+              <span>Pedido: {pedido.pedido}</span>
+            </div>
             {pedido.estado === 'pendiente' ? (
-              <button onClick={() => marcarPedidoEntregado(index)}>
+              <button className="pendiente-button" onClick={() => marcarPedidoEntregado(index)}>
                 Pendiente
               </button>
             ) : (
@@ -87,6 +95,5 @@ function Cocina() {
     </div>
   );
 }
-
 
 export default Cocina;
