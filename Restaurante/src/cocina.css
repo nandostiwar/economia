@@ -1,44 +1,33 @@
-/* Estilos para el contenedor principal */
+/* cocina.css */
 .container {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 50vh; /* Asegura que ocupe toda la altura de la ventana */
-}
-
-/* Contenido dentro del contenedor */
-.contenido {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    max-width: 1200px; /* Establece un ancho máximo para evitar que el contenido se expanda demasiado */
-    width: 100%; /* Asegura que el contenido no supere el ancho máximo */
-}
-
-/* Estilos para el formulario */
-.formulario {
-    width: 30%;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos para las tarjetas */
-.tarjetas {
-    width: 60%;
-}
-
-.card {
-    background-color: #ffffff;
-    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
     padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
+  }
+  
+  .formulario {
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .tarjetas {
+    display: flex;
+    flex-wrap: nowrap; /* Evitar que las tarjetas se envuelvan a la siguiente línea */
+    justify-content: flex-start; /* Alineación horizontal al principio */
+    overflow-x: auto; /* Añadir una barra de desplazamiento horizontal si es necesario */
+    max-height: 200px; /* Establecer una altura máxima para el div tarjetas */
+  }
+  
+  .tarjetas > .card {
+    margin-right: 10px;
+  }
+  
+  .card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  

@@ -1,82 +1,59 @@
 import React, { useState } from 'react';
 import './juego.css';
+import Caja from './componets/caja';
 import { Link, useNavigate } from "react-router-dom";
 
 function Juego() {
-    const coloresInicial = ['#3498db', '#3498db', '#3498db', '#3498db', '#3498db'];
-    const [numRandom, setRandomNumbers] = useState([1, 4]);
-    const [colores, setColores] = useState(coloresInicial);
-    const [gameOver, setGameOver] = useState(false);
-    const [victory, setVictory] = useState(false);
+    const arrayNum = [1, 2, 3, 4, 5];
+    const [hasPerdido, setHasPerdido] = useState(false);
+    const [hasGanado, setHasGanado] = useState(false);
+    const [gana, setGana] = useState(1);
+    const [pierde, setPierde] = useState(1);
 
     const navigate = useNavigate();
 
-    //funcion que valida, las cajas 
-    const cajas = (num) => {
-        if (gameOver || victory) return;
-
-        const isMatch = numRandom.includes(num);
-
-        const newColores = [...colores];
-        if (isMatch) {
-            newColores[num - 1] = 'red';
-        } else {
-            newColores[num - 1] = 'green';
+    function valPerdido() {
+        setPierde(pierde + 1);
+        if (pierde === 1) {
+            setHasPerdido(true);
         }
+    }
 
-        setColores(newColores);
-
-        const greenCount = newColores.filter(color => color === 'green').length;
-        const redCount = newColores.filter(color => color === 'red').length;
-
-        if (greenCount >= 3) {
-            setVictory(true);
-        } else if (redCount >= 1) {
-            setGameOver(true);
+    function valGanado() {
+        setGana(gana + 1);
+        if (gana === 3) {
+            setHasGanado(true);
         }
-    };
+    }
 
-    //funcion que reinicia el juego
-    const resetGame = () => {
-        const newNumRandom = generateRandomNumbers();
-        setRandomNumbers(newNumRandom);
-        setColores(coloresInicial);
-        setGameOver(false);
-        setVictory(false);
-    };
-
-    //funcion que devuelve al inicio
     const atras = () => {
         navigate("/");
     };
 
-    const generateRandomNumbers = () => {
-        const num1 = Math.floor(Math.random() * 5) + 1;
-        let num2;
-        do {
-            num2 = Math.floor(Math.random() * 5) + 1;
-        } while (num2 === num1);
-        return [num1, num2];
+    const reiniciar = () => {
+        window.location.reload(); // Recargar la página completa
     };
-
     return (
-        <div className="wrapper">
-            <h1>POSICIÓN ALEATORIA DE MINAS: 1 y 4</h1>
-            <div className="container">
-                {colores.map((color, index) => (
-                    <div
+        <div className="container">
+            <div className="formulario">
+                <h1>POSICIÓN ALEATORIA DE MINAS: 1 y 4</h1>
+            </div>
+            <div className="tarjetas">
+                {arrayNum.map((num, index) => (
+                    <Caja
                         key={index}
-                        className="box"
-                        style={{ backgroundColor: color }}
-                        onClick={() => cajas(index + 1)}>
-                        {index + 1}
-                    </div>
+                        numero={num}
+                        hasPerdido={hasPerdido}
+                        hasGanado={hasGanado}
+                        onPerdida={valPerdido}
+                        onGanado={valGanado}
+                    />
                 ))}
             </div>
-            {victory && <p>GANÓ!.</p>}
-            {gameOver && !victory && <p>PERDIÓ!</p>}
+            {hasPerdido && <h1>¡Perdiste!</h1>}
+            {hasGanado && <h1>¡Ganaste!</h1>}
             <div className="button-container">
-                <button onClick={resetGame}>VOLVER A JUGAR</button>
+                <button onClick={reiniciar}>VOLVER A JUGAR</button>
                 <button onClick={atras}>REGRESAR</button>
             </div>
         </div>

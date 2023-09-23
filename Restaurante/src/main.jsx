@@ -7,6 +7,7 @@ import Login from './Login.jsx';
 import Cocina from './Cocina.JSX';
 import Pedidos from './componets/Pedidos';
 import Card from './componets/Card';
+import Caja from './componets/caja';
 const routes = [
   {
     path: "/",
@@ -29,6 +30,11 @@ const routes = [
   {
     path: "/  ",
     element: <Card/>,
+  }
+  ,
+  {
+    path: "/caja",
+    element: <Caja/>,
   }
 ];
 

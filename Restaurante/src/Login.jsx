@@ -20,6 +20,8 @@ function Login() {
 
         if(username == "juego" && password == "juego123"){
             navigate("/juego");
+        }else if(username == "cocina" && password == "cocina123"){
+            navigate("/cocina");
         }
     };
 

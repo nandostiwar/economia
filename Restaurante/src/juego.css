@@ -1,42 +1,35 @@
-.wrapper {
-    text-align: center;
-}
-
+/* cocina.css */
 .container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    margin: 50px auto;
-}
-
-.box {
-    width: 100px;
-    height: 100px;
-    background-color: #3498db;
-    color: #fff;
+    padding: 10px;
+  }
+  
+  .formulario {
+    margin-bottom: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .tarjetas {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 5px;
+    flex-wrap: nowrap; /* Evitar que las tarjetas se envuelvan a la siguiente línea */
+    justify-content: flex-start; /* Alineación horizontal al principio */
+    overflow-x: auto; /* Añadir una barra de desplazamiento horizontal si es necesario */
+    max-height: 200px; /* Establecer una altura máxima para el div tarjetas */
+  }
+  
+  .tarjetas > .card {
+    margin-right: 10px;
+  }
+  
+  .card {
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    text-align: center;
+  }
+  .button-container {
+    margin-top: 90px;
 }
-
-.button-container {
-    margin-top: 20px;
-}
-
-.button-container button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #2ecc71;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-.button-container button:hover {
-    background-color: #27ae60;
-}
-
+  

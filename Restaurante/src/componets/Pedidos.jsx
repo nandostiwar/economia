@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import './pedidos.css';
 
 function Pedidos({ agregarPedido }) {
@@ -6,17 +7,23 @@ function Pedidos({ agregarPedido }) {
     const [mesa, setMesa] = useState('');
     const [mesero, setMesero] = useState('');
 
-    const handlePedido = () => {
-        
+        const navigate = useNavigate();
+
+    const agregar = () => {
     const nuevoPedido = {
         pedido,
         mesa,
         mesero,
     };
+    
     agregarPedido(nuevoPedido);
     setPedido('');
     setMesa('');
     setMesero('');
+    };
+
+    const atras = () => {
+        navigate("/");
     };
 
     return (
@@ -49,10 +56,10 @@ function Pedidos({ agregarPedido }) {
             onChange={(e) => setMesero(e.target.value)}/>
         </div>
         <div className="form-buttons">
-        <button type="button" onClick={handlePedido}>
+        <button type="button" onClick={agregar}>
             Pedido
         </button>
-        <button type="button">Atrás</button>
+        <button onClick={atras} type="button">Atrás</button>
         </div>
     </div>
     );
