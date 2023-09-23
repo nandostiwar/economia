@@ -1,0 +1,20 @@
+.LoginContainer {
+    border-radius: 20px;
+    width: 500px;
+    padding: 10px;  
+    text-align: center;
+    border: 2px solid #444444;
+    box-shadow: 2px 2px 5px #fcfcfc;
+    background-color: #042454;
+    color: #fcfcfc;
+    font-size: 16px;
+}
+
+.LoginInput {
+    background-color: #fcfcfc;
+    border-width: 3px;
+    border-color: #d8d8d8;
+    color: #000000;
+    border-radius:35px;
+    width: 400px;
+}

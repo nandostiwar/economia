@@ -1,0 +1,27 @@
+.number {
+    background-color: transparent;
+    color: black;
+  }
+  
+  .safe {
+    background-color: green;
+    color: white;
+  }
+  
+  .bomb {
+    background-color: red;
+    color: white;
+  }
+
+  .GameContainer {
+    border-radius: 20px;
+    width: 500px;
+    padding: 10px;  
+    text-align: center;
+    border: 2px solid #444444;
+    box-shadow: 2px 2px 5px #fcfcfc;
+    background-color: #042454;
+    color: #fcfcfc;
+    font-size: 16px;
+  }
+  

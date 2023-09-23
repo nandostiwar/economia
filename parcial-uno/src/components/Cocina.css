@@ -1,0 +1,88 @@
+form {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .pedido-pendiente {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 35px;
+    text-align: center;
+    border: 2px solid red;
+    font-size: 16px;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .pedido-pendiente:hover {
+    background-color: lightsalmon;
+    border: 2px solid white;
+  }
+  
+  .pedido-entregado {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 35px;
+    text-align: center;
+    border: 2px solid green;
+    font-size: 16px;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .pedido-entregado:hover {
+    background-color: lightgreen;
+    border: 2px solid white;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .Container {
+    border-radius: 20px;
+    width: 500px;
+    padding: 10px;  
+    text-align: center;
+    border: 2px solid #444444;
+    box-shadow: 2px 2px 5px #fcfcfc;
+    background-color: #042454;
+    color: #fcfcfc;
+    font-size: 16px;
+  }
+
+  input {
+    width: max-content;
+  }
