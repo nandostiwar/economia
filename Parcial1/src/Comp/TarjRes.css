@@ -1,3 +1,10 @@
 .tarjeta{
     border: 2px solid black;
+    margin: 5px;
+
+    height: 200x;
+    width: 350px;
+}
+.info{
+    margin-right: 5px;
 }

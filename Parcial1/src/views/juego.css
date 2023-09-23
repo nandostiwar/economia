@@ -1,0 +1,14 @@
+.juegoView{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid black;
+    border-radius: 5%;
+    text-align: center;
+    margin: 20px;
+    
+    background: grey;
+    width: 600px;
+    height: 400px;
+}

@@ -1,61 +1,74 @@
 import React,{useState,useEffect} from 'react'
+import Mina from '../Comp/mina';
+import "./juego.css"
+import explo from "../recursos/explosion.png"
+import mono from "../recursos/mono.png"
+import botonJuego from "../recursos/boton.png"
 
 function Juego() {
 
-    const [mensaje, setMensaje] = useState("");
-    const [botones, setBotones] = useState([]);
+    const [mensaje, setMensaje] = useState("")
+    const [botones, setBotones] = useState([])
     const[color,setColor] = useState(false)
 
-    useEffect(() => {
-        const botonesArray = [
-          { id: 1, valor: 0, color:"red" },
-          { id: 2, valor: 1, color:"green" },
-          { id: 3, valor: 1, color:"green" },
-          { id: 4, valor: 1, color:"green" },
-          { id: 5, valor: 0, color:"red" },
-        ];
-        const botonesAleatorios = [...botonesArray].sort(() => Math.random() - 0.5);
     
-        setBotones(botonesAleatorios);
+    const botonesArray = [
+      {valor: 0, color:"red",img:explo},
+      {valor: 1, color:"green",img:mono },
+      {valor: 1, color:"green",img:mono },
+      {valor: 1, color:"green",img:mono },
+      {valor: 0, color:"red",img:explo },
+    ]
+
+      useEffect(() => {
+        const botonesAleatorios = [...botonesArray].sort(() => Math.random() - 0.5)
+        setBotones(botonesAleatorios)
       }, []);
-    
-    
+
     const regresar =()=>{
-        window.location="/";
+        window.location="/"
     } 
-    const volverAJugar = () => {
-        window.location.reload();
+    const volverAJugar = () => { 
+        setColor(false); 
+        const botonesAleatorios = [...botonesArray].sort(() => Math.random() - 0.5)
+        setBotones(botonesAleatorios)
+        setMensaje("");
       };
     const handleClick = (valor) => {
         setColor(true);
         if (valor === 0) {
-          setMensaje("¡Perdiste!");
+          setMensaje("¡Perdiste!")
         } else {
-          setMensaje("¡Ganaste!");
+          setMensaje("¡Ganaste!")
         }
       };
 
 
 
   return (
-    <div style={{textAlign:"center"}}>
-        <h1>Juego de Busca minas</h1>
-        <h3>Posición aleatoria de minas entre: 1 y 5</h3>
-        <div>
-            {botones.map((boton) => (
-                <button
-                type="button"
-                onClick={() => handleClick(boton.valor)}
-                >Mina?</button>
-        ))}
-        </div>
+    <div className='juegoView'>
+      
+      <div>
 
-        <div>
-            <p>{mensaje}</p>
-        </div>
+          <h1>Juego de Busca minas</h1>
+          <h3>Posición aleatoria de minas entre: 1 y 5</h3>
+          <div>
+              {botones.map((boton) => (
+                <Mina btn={()=>handleClick(boton.valor)} 
+                img={color===false?botonJuego:boton.img}
+                color={color===false?{background:"grey"}:{background:boton.color}}/>
+            ))}
+           
+          </div>
 
-        <button type="button" onClick={volverAJugar}>Volver a jugar</button>
-        <button type="button" onClick={regresar}>Regresar</button>
+          <div>
+              <p>{mensaje}</p>
+          </div>
+
+          <button type="button" onClick={volverAJugar}>Volver a jugar</button>
+          <button type="button" onClick={regresar}>Regresar</button>
+        
+      </div>
     </div>
   )
 }

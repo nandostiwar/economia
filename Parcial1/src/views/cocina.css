@@ -1,0 +1,23 @@
+
+.principal{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    object-position: center;
+    
+}
+
+.pedidos{
+    object-position: center;
+    border:2px solid black;
+    align-items: center;
+    text-align: center;
+
+    height: 400px;
+    width: 350px;
+}
+.lista{
+    flex-wrap: wrap;
+    object-position: center;
+    border: 2px solid black;
+}

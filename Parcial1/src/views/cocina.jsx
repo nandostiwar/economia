@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import TarjRestaurant from '../Comp/TarjRestaurant';
+import "./cocina.css"
 
 function Cocina() {
   const [pedidos, setPedidos] = useState([]);
   const [regis, setRegis] = useState({
     Turno: 1,
-    Pedido: '',
-    Mesa: '',
-    Mesero: '',
-    Estado: 'Pendiente',
+    Pedido: "",
+    Mesa: "",
+    Mesero: "",
+    Estado: "Pendiente",
   });
 
   const handleChange = (e) => {
@@ -23,53 +24,56 @@ function Cocina() {
     setRegis((prevRegis) => ({ ...prevRegis, Turno: prevRegis.Turno + 1 }));
     setRegis({
       Turno: regis.Turno + 1,
-      Pedido: '',
-      Mesa: '',
-      Mesero: '',
-      Estado: 'Pendiente',
+      Pedido: "",
+      Mesa: "",
+      Mesero: "",
+      Estado: "Pendiente",
     });
   };
 
   
   const Estado = (indicador) => {
     const nuevosPedidos = [...pedidos];
-    nuevosPedidos[indicador].Estado = nuevosPedidos[indicador].Estado === 'Pendiente' ? 'Entregado' : 'Pendiente';
+    nuevosPedidos[indicador].Estado = nuevosPedidos[indicador].Estado === "Pendiente" ? "Entregado" : "Pendiente";
     setPedidos(nuevosPedidos);
   };
 
   return (
-    <div>
-      <div>
-        <p>Pedido:</p>
+    <div className='principal'>
+      <div className='pedidos'>
+        <h4>Pedido</h4>
         <input
           type="text"
           name="Pedido"
           value={regis.Pedido}
           onChange={handleChange}
         />
-        <p>Mesa:</p>
+        <h4>Mesa</h4>
         <input
           type="text"
           name="Mesa"
           value={regis.Mesa}
           onChange={handleChange}
         />
-        <p>Mesero:</p>
+        <h4>Mesero</h4>
         <input
           type="text"
           name="Mesero"
           value={regis.Mesero}
           onChange={handleChange}
         />
+        <br />
         <button onClick={handleSubmit}>Guardar Pedido</button>
-      </div>
 
-      {pedidos.length > 0 && (
+        {pedidos.length > 0 && (
         <p>Pedido registrado con éxito con el número de turno: {regis.Turno - 1}</p>
       )}
 
-      <div>
+      </div>
+
+      <div className='lista'>
         <h2>Lista de Pedidos:</h2>
+        <br />
         {pedidos.map((pedido, indicador) => (
           <div key={indicador}>
             <TarjRestaurant
@@ -77,10 +81,10 @@ function Cocina() {
               pedido={pedido.Pedido}
               mesa={pedido.Mesa}
               mesero={pedido.Mesero}
-              col={pedido.Estado === 'Pendiente'? {background:'red'}:{background:'green'}}
+              col={pedido.Estado === "Pendiente"? {background:"red"}:{background:"green"}}
             />
             <button onClick={() => Estado(indicador)}>
-              {pedido.Estado === 'Pendiente' ? 'Pendiente' : 'Entregado'}
+              {pedido.Estado === "Pendiente" ? "Pendiente" : "Entregado"}
             </button>
           </div>
         ))}
