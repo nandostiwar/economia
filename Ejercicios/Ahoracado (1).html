@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #contenedor-palabra {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #vidas {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="entradaPalabra">Ingresa la palabra a adivinar: </label>
+        <input type="text" id="entradaPalabra" placeholder="Ingresa una palabra">
+        <button id="botonComenzar">Comenzar Juego</button>
+    </div>
+    <div id="contenedorJuego" style="display: none;">
+        <div id="contenedor-palabra"></div>
+        <div id="vidas">Vidas: 5</div>
+        <input type="text" id="adivinanza" placeholder="Adivina una letra">
+        <button id="botonAdivinar">Adivinar</button>
+    </div>
+
+    <script>
+        let palabraSeleccionada = '';
+        let letrasAdivinadas = [];
+        let vidasRestantes = 5;
+
+        const botonComenzar = document.getElementById('botonComenzar');
+        const entradaPalabra = document.getElementById('entradaPalabra');
+        const contenedorJuego = document.getElementById('contenedorJuego');
+        const contenedorPalabra = document.getElementById('contenedor-palabra');
+        const vidasElemento = document.getElementById('vidas');
+        const adivinanzaEntrada = document.getElementById('adivinanza');
+        const botonAdivinar = document.getElementById('botonAdivinar');
+
+        function actualizarMostrarPalabra() {
+            let palabraMostrada = '';
+            for (const letra of palabraSeleccionada) {
+                if (letrasAdivinadas.includes(letra)) {
+                    palabraMostrada += letra + ' ';
+                } else {
+                    palabraMostrada += '_ ';
+                }
+            }
+            contenedorPalabra.textContent = palabraMostrada;
+        }
+
+        function verificarGanar() {
+            if (!contenedorPalabra.textContent.includes('_')) {
+                alert('¡Ganaste!');
+                reiniciarJuego();
+            }
+        }
+
+        function verificarPerder() {
+            if (vidasRestantes === 0) {
+                alert('¡Perdiste! La palabra era: ' + palabraSeleccionada);
+                reiniciarJuego();
+            }
+        }
+
+        function reiniciarJuego() {
+            palabraSeleccionada = '';
+            letrasAdivinadas = [];
+            vidasRestantes = 5;
+            entradaPalabra.value = '';
+            vidasElemento.textContent = 'Vidas: ' + vidasRestantes;
+            actualizarMostrarPalabra();
+            botonComenzar.disabled = false;
+            contenedorJuego.style.display = 'none';
+        }
+
+        botonComenzar.addEventListener('click', function() {
+            const palabraIngresada = entradaPalabra.value.toLowerCase();
+            if (palabraIngresada.length > 0) {
+                palabraSeleccionada = palabraIngresada;
+                actualizarMostrarPalabra();
+                botonComenzar.disabled = true;
+                contenedorJuego.style.display = 'block';
+            }
+        });
+
+        botonAdivinar.addEventListener('click', function() {
+            const adivinanza = adivinanzaEntrada.value.toLowerCase();
+            if (adivinanza.length === 1 && letrasAdivinadas.indexOf(adivinanza) === -1) {
+                letrasAdivinadas.push(adivinanza);
+                if (palabraSeleccionada.includes(adivinanza)) {
+                    actualizarMostrarPalabra();
+                    verificarGanar();
+                } else {
+                    vidasRestantes--;
+                    vidasElemento.textContent = 'Vidas: ' + vidasRestantes;
+                    verificarPerder();
+                }
+            }
+            adivinanzaEntrada.value = '';
+        });
+    </script>
+</body>
+</html>
