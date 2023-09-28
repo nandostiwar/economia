@@ -8,12 +8,14 @@ function Calculadora(){
     const [resultado, setResultado] = useState('');
 
     function handleSubmit(e){
+
         e.preventDefault();
         const operacion = e.target.value;
-        fetch(`http://localhost:3500/v1/calculadora/${operacion}`, {
+        const func = e.target.dataset.text; //optenemos la palabra operacion, en la ruta ejecutamos la funcion operacion
+        fetch(`http://localhost:3500/v1/calculadora/${func}`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({number1, number2})
+            body: JSON.stringify({number1, number2, operacion, func})//se nvia 2 parametros de mas, el tipo de operacion que va hacer y la palabra para que ejecute la ruta que la cual se va usar 
         })
             .then(res =>res.json())
             .then(responseData => {
@@ -29,9 +31,9 @@ function Calculadora(){
             <form>
                 <input type="text" className="number" onChange={(e)=>{setNumber1(e.target.value)}}/><br />
                 <input type="text" className="number" onChange={(e)=>{setNumber2(e.target.value)}}/><br />
-                <input type="submit" className="btnEnviar" value="sumar" onClick={handleSubmit}/>
-                <input type="submit" className="btnEnviar" value="restar" onClick={handleSubmit}/>
-                <input type="submit" className="btnEnviar" value="multiplicar" onClick={handleSubmit}/>
+                <input type="submit" className="btnEnviar" value="sumar" data-text="operacion" onClick={handleSubmit}/>
+                <input type="submit" className="btnEnviar" value="restar" data-text="operacion" onClick={handleSubmit}/>
+                <input type="submit" className="btnEnviar" value="multiplicar" data-text="operacion" onClick={handleSubmit}/>
             </form>
             <Resultado resultado={"El resultado es "+ resultado}/>
         </div>
