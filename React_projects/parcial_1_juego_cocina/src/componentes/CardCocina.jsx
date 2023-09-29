@@ -1,11 +1,11 @@
-import React from 'react'
 import '../componentes/cardCocina.css'
 import { useState } from 'react';
 
+// eslint-disable-next-line react/prop-types
 function CardCocina({ turno = "no hay turno", pedido = "no hay pedido", mesa = "no hay mesa", mesero = "no hay mesero" }) {
   const [pendiente, setPendiente] = useState(true);
 
-  function validate(e) {
+  function validate() {
     setPendiente(!pendiente);
   }
 
@@ -20,4 +20,4 @@ function CardCocina({ turno = "no hay turno", pedido = "no hay pedido", mesa = "
   )
 }
 
-export default CardCocina
+export default CardCocina 

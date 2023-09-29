@@ -1,4 +1,4 @@
-import React from 'react';
+
 import "./cocina.css"
 import CardCocina from './componentes/CardCocina';
 import { Link } from 'react-router-dom'
@@ -10,7 +10,7 @@ const Cocina = () => {
     const [pedido, setPedido] = useState("");
     const [mesa, setMesa] = useState("");
     const [mesero, setMesero] = useState("");
-    const [pendiente, setPendiente] = useState("");
+    // eslint-disable-next-line no-unused-vars
     const [pedidos, setPedidos] = useState([]);
 
     const ped = document.getElementById("pedido")
@@ -25,7 +25,7 @@ const Cocina = () => {
         mes.value = ''
         mese.value = ''
     }
-
+ 
     return (
         <>
             <h1>COCINA</h1>

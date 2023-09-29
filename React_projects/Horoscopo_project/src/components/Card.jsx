@@ -1,7 +1,8 @@
-import React from 'react'
+
 import "./Card.css"
 import { Link } from 'react-router-dom'
 
+// eslint-disable-next-line react/prop-types
 function Card({ name = "Horoscopo", dateRange = "Rango de fechas", img }) {
     return (
         <div className='Card'>

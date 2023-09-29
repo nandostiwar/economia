@@ -1,7 +1,7 @@
-import React from 'react'
+
 import './App.css'
 import { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
 
@@ -9,7 +9,7 @@ const App = () => {
   const [password, setPassword] = useState(null);
   const goTo = useNavigate();
 
-  const validateUser = (event) => {
+  const validateUser = () => {
     if(username === 'juego' && password === 'juego123') {
       goTo("/Juego");} 
     else if(username === 'cocina' && password==='cocina123'){

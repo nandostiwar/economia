@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CardJuego from './componentes/CardJuego'
 import { Link } from 'react-router-dom';
 
@@ -6,7 +6,6 @@ let numSis1, numSis2
 
 const Juego = () => {
     const [minas, setMinas] = useState([]);
-    const [ganador, setGanador] = useState(null);
 
     const seleccionarNumAleatorios = () => {
         numSis1 = Math.floor(Math.random() * 5) + 1;

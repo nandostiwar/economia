@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../componentes/cardJuego.css'
 
 let ttlPerdidas = 0
 let ttlGanadas = 0
 
+// eslint-disable-next-line react/prop-types
 function CardJuego({ num = 0, esMina }) {
   const [color, setColor] = useState(null);
 
