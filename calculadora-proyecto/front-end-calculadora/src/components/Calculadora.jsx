@@ -11,17 +11,15 @@ function Calculadora(){
 
         e.preventDefault();
         const operacion = e.target.value;
-        const func = e.target.dataset.text; //optenemos la palabra operacion, en la ruta ejecutamos la funcion operacion
-        fetch(`http://localhost:3500/v1/calculadora/${func}`, {
+        // fetch(`http://localhost:3500/v1/calculadora/${func}`, {
+        fetch(`http://localhost:3500/v1/calculadora/operacion`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({number1, number2, operacion, func})//se nvia 2 parametros de mas, el tipo de operacion que va hacer y la palabra para que ejecute la ruta que la cual se va usar 
+            body: JSON.stringify({number1, number2, operacion})//se envia el parametro, operacion para saber que accion se debe realizar
         })
             .then(res =>res.json())
             .then(responseData => {
                 setResultado(responseData.resultado)
-                // setResultado(responseData)
-                // console.log(resultado)
             })
     }
 
@@ -31,9 +29,9 @@ function Calculadora(){
             <form>
                 <input type="text" className="number" onChange={(e)=>{setNumber1(e.target.value)}}/><br />
                 <input type="text" className="number" onChange={(e)=>{setNumber2(e.target.value)}}/><br />
-                <input type="submit" className="btnEnviar" value="sumar" data-text="operacion" onClick={handleSubmit}/>
-                <input type="submit" className="btnEnviar" value="restar" data-text="operacion" onClick={handleSubmit}/>
-                <input type="submit" className="btnEnviar" value="multiplicar" data-text="operacion" onClick={handleSubmit}/>
+                <input type="submit" className="btnEnviar" value="sumar" onClick={handleSubmit}/>
+                <input type="submit" className="btnEnviar" value="restar" onClick={handleSubmit}/>
+                <input type="submit" className="btnEnviar" value="multiplicar" onClick={handleSubmit}/>
             </form>
             <Resultado resultado={"El resultado es "+ resultado}/>
         </div>

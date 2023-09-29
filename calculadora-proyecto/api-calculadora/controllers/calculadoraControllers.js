@@ -5,22 +5,19 @@ const {add, subtract, multiply} = require('../operaciones/operaciones.js');
 function operacion(req, res){
     const {body} = req;
     const {number1, number2} = body;
+    let  result = 0;
+    
     if(body['operacion'] == "sumar"){
-        const result = add(number1, number2);
-        res.json({
-            resultado: result
-        });
+        result = add(number1, number2);
     }else if(body['operacion'] == "restar"){
-        const result = subtract(number1, number2);
-        res.json({
-            resultado: result
-        })
+        result = subtract(number1, number2);
     }else if(body['operacion'] == "multiplicar"){
-        const result = multiply(number1, number2);
-        res.json({
-            resultado: result
-        })
+        result = multiply(number1, number2);
     }
+
+    res.json({
+        resultado: result
+    })
 }
 
 
