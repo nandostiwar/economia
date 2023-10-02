@@ -1,0 +1,12 @@
+.habitacion {
+    width: 100px; /* Ancho del div */
+    height: 100px; /* Altura del div */
+    border: 2px solid #000; /* Borde de 2 píxeles de grosor */
+    border-radius: 10px; /* Bordes redondeados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* Tamaño del número */
+    font-weight: bold; /* Texto en negrita */
+  }
+  

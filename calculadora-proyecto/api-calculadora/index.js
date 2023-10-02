@@ -1,7 +1,7 @@
 const express = require('express');
 const {urlencoded, json} = require('express');
 const router = require('./routes/calculadora.routes.js');
-const cors = require('cors');
+const cors = require('cors');//cuando el servidor este desplegado pueda recibir peticiones
 
 const app = express();
 

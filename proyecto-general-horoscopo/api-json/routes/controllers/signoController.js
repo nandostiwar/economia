@@ -21,10 +21,7 @@ const updateSigno = async (req, res)=>{
     const allSignos = await fs.readFile(path.join(__dirname,'../../db/signos.json'));
     const objSignos = JSON.parse(allSignos);
 
-    const objUpdate = {
-        ...objSignos,
-        [signoEditar]: textoEditar
-    }
+    const objUpdate = {...objSignos,[signoEditar]: textoEditar}//aga una copia con el signo que voya  a editr, y remplaze el archivo
 
     // console.log(objUpdate);
     await fs.writeFile(path.join(__dirname,'../../db/signos.json'), JSON.stringify(objUpdate, null, 2), {encoding: 'utf-8'})
