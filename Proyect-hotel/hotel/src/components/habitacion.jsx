@@ -10,9 +10,9 @@ function Habitacion({ numero, habitacion, responseData }) {
 
     // Verificar el valor correspondiente en responseData y establecer el color de fondo
     if (responseData && responseData[tipo] && responseData[tipo][`h${numero}`] === 0) {
-      setBackgroundColor('green'); // Si es cero, establecer el color verde
+      setBackgroundColor('green');
     } else {
-      setBackgroundColor('red'); // Si es uno, establecer el color rojo
+      setBackgroundColor('red');
     }
   }, [habitacion, numero, responseData]);
 
@@ -20,7 +20,7 @@ function Habitacion({ numero, habitacion, responseData }) {
   function validar(e) {
     e.preventDefault();
 
-    // Verificar el color de fondo y guardar el valor correspondiente
+    //cambia el color cuando se quiere cambiar de estado la habitacion
     if (backgroundColor === 'green') {
       estadoHabi = 1;
       setBackgroundColor('red');
@@ -29,7 +29,8 @@ function Habitacion({ numero, habitacion, responseData }) {
       setBackgroundColor('green');
     }
 
-    fetch(`http://localhost:4000/v1/habitacion/sitio`, {
+    //consulta la api para poder modificar el valor de la habitacion
+    fetch(`http://localhost:4000/v1/habitacion/setEstado`, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ numero, tipo: habitacion.toLowerCase(), estadoHabi })
@@ -41,7 +42,9 @@ function Habitacion({ numero, habitacion, responseData }) {
   }
 
   return (
-    <div className="habitacion" onClick={validar} style={{ backgroundColor: backgroundColor }}>
+    <div className="habitacion" 
+      onClick={validar} 
+      style={{ backgroundColor: backgroundColor }}>
       {numero}
       
     </div>

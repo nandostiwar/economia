@@ -26,6 +26,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <h1>Habitaciones</h1>
       {titulos.map((titulo, index) => (
         <div key={index} className="titulo-habitacion-container">
           <div className="titulo-container">

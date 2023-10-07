@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 
+//funcion que actualiza el estado de la habitacion
 const updateHabitacion = async (req, res) => {
     const { body } = req;
     const { numero, tipo, estadoHabi } = body;
@@ -20,6 +21,7 @@ const updateHabitacion = async (req, res) => {
 
 }
 
+//funcion que consulta todos los estados de la funcion
 const getAllHabitacion = async (req, res) => {
     const habitaciones = await fs.readFile(path.join(__dirname, '../db/habitacion.json'));
     const habitacionJson = JSON.parse(habitaciones);
