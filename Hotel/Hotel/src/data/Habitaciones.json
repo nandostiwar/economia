@@ -1,0 +1,77 @@
+[
+  {
+    "nombre": "Habitación 101",
+    "ocupada": true,
+    "calidad": "alta"
+  },
+  {
+    "nombre": "Habitación 102",
+    "ocupada": false,
+    "calidad": "alta"
+  },
+  {
+    "nombre": "Habitación 103",
+    "ocupada": false,
+    "calidad": "alta"
+  },
+  {
+    "nombre": "Habitación 104",
+    "ocupada": true,
+    "calidad": "alta"
+  },
+  {
+    "nombre": "Habitación 105",
+    "ocupada": false,
+    "calidad": "alta"
+  },
+  {
+    "nombre": "Habitación 201",
+    "ocupada": true,
+    "calidad": "media"
+  },
+  {
+    "nombre": "Habitación 202",
+    "ocupada": false,
+    "calidad": "media"
+  },
+  {
+    "nombre": "Habitación 203",
+    "ocupada": false,
+    "calidad": "media"
+  },
+  {
+    "nombre": "Habitación 204",
+    "ocupada": false,
+    "calidad": "media"
+  },
+  {
+    "nombre": "Habitación 205",
+    "ocupada": false,
+    "calidad": "media"
+  },
+  {
+    "nombre": "Habitación 301",
+    "ocupada": false,
+    "calidad": "baja"
+  },
+  {
+    "nombre": "Habitación 302",
+    "ocupada": true,
+    "calidad": "baja"
+  },
+  {
+    "nombre": "Habitación 303",
+    "ocupada": false,
+    "calidad": "baja"
+  },
+  {
+    "nombre": "Habitación 304",
+    "ocupada": false,
+    "calidad": "baja"
+  },
+  {
+    "nombre": "Habitación 305",
+    "ocupada": true,
+    "calidad": "baja"
+  }
+]
