@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "tipo": "junior",
+    "habitacion": "#101",
+    "estado": "Ocupada"
+  },
+  {
+    "id": "2",
+    "tipo": "junior",
+    "habitacion": "#102",
+    "estado": "Disponible"
+  },
+  {
+    "id": "3",
+    "tipo": "junior",
+    "habitacion": "#103",
+    "estado": "Disponible"
+  },
+  {
+    "id": "4",
+    "tipo": "junior",
+    "habitacion": "#104",
+    "estado": "Ocupada"
+  },
+  {
+    "id": "5",
+    "tipo": "junior",
+    "habitacion": "#105",
+    "estado": "Disponible"
+  },
+  {
+    "id": "6",
+    "tipo": "suite",
+    "habitacion": "#201",
+    "estado": "Disponible"
+  },
+  {
+    "id": "7",
+    "tipo": "suite",
+    "habitacion": "#202",
+    "estado": "Disponible"
+  },
+  {
+    "id": "8",
+    "tipo": "suite",
+    "habitacion": "#203",
+    "estado": "Disponible"
+  },
+  {
+    "id": "9",
+    "tipo": "suite",
+    "habitacion": "#204",
+    "estado": "Disponible"
+  },
+  {
+    "id": "10",
+    "tipo": "suite",
+    "habitacion": "#205",
+    "estado": "Disponible"
+  },
+  {
+    "id": "11",
+    "tipo": "presi",
+    "habitacion": "#301",
+    "estado": "Disponible"
+  },
+  {
+    "id": "12",
+    "tipo": "presi",
+    "habitacion": "#302",
+    "estado": "Disponible"
+  },
+  {
+    "id": "13",
+    "tipo": "presi",
+    "habitacion": "#303",
+    "estado": "Disponible"
+  },
+  {
+    "id": "14",
+    "tipo": "presi",
+    "habitacion": "#304",
+    "estado": "Ocupada"
+  },
+  {
+    "id": "15",
+    "tipo": "presi",
+    "habitacion": "#305",
+    "estado": "Disponible"
+  }
+]

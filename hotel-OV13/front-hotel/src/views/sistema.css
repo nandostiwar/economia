@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+.botns{
+    
+    width: 90px;
+}
+
+.habitaciones{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.container{
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: gray;
+    border-radius: 50px;
+    display: block;
+    width:600px ;
+}

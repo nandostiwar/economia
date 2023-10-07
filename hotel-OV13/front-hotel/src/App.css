@@ -1,0 +1,9 @@
+body{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: #202020;
+}
+.container{
+  border-radius: 2px solid black;
+}
