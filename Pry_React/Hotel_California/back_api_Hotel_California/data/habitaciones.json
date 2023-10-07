@@ -1,0 +1,79 @@
+{
+    "habitaciones": [
+        {
+            "id": 101,
+            "tipo": "Suite",
+            "disponible": true
+        },
+        {
+            "id": 102,
+            "tipo": "Suite",
+            "disponible": true
+        },
+        {
+            "id": 103,
+            "tipo": "Suite",
+            "disponible": true
+        },
+        {
+            "id": 104,
+            "tipo": "Suite",
+            "disponible": true
+        },
+        {
+            "id": 105,
+            "tipo": "Suite",
+            "disponible": true
+        },
+        {
+            "id": 201,
+            "tipo": "Junior",
+            "disponible": true
+        },
+        {
+            "id": 202,
+            "tipo": "Junior",
+            "disponible": true
+        },
+        {
+            "id": 203,
+            "tipo": "Junior",
+            "disponible": true
+        },
+        {
+            "id": 204,
+            "tipo": "Junior",
+            "disponible": true
+        },
+        {
+            "id": 205,
+            "tipo": "Junior",
+            "disponible": true
+        },
+        {
+            "id": 301,
+            "tipo": "Economic",
+            "disponible": true
+        },
+        {
+            "id": 302,
+            "tipo": "Economic",
+            "disponible": true
+        },
+        {
+            "id": 303,
+            "tipo": "Economic",
+            "disponible": true
+        },
+        {
+            "id": 304,
+            "tipo": "Economic",
+            "disponible": true
+        },
+        {
+            "id": 305,
+            "tipo": "Economic",
+            "disponible": true
+        }
+    ]
+}

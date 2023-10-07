@@ -1,0 +1,23 @@
+.CardHabitacion {
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #f1f1f133;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #ffffff5c;
+  }
+
+  .h1{
+    border: 2px solid #ffffff5c;
+    border-radius: 20px;
+  }
+
+  .reservado {
+    background-color: rgb(252, 76, 76);
+    color: white;
+  }
+  
+  .disponible {
+    background-color: rgb(201, 246, 232);
+    color: black;
+  }

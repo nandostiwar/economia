@@ -1,0 +1,21 @@
+body{
+  background-image: url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80");
+  background-position: 0;
+  background-repeat:no-repeat;
+  background-size: cover;
+  color: #FFFFFF;
+}
+
+.App {
+  align-items: center;
+}
+.App h1{
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
