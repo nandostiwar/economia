@@ -1,0 +1,51 @@
+  .App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin-left: 410px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .form {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Cambio de color verde al pasar el ratón */
+  }
