@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import Juego from './juego.jsx'
+import Juego from './Juego.jsx'
 import Cocina from './Cocina.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
