@@ -4,9 +4,7 @@ const hotelControllers = require('../controllers/hotelControllers.js');
 
 //se cre una unica ruta, para que ejecute dependiedo que tipo de operacion
 router
-    .post('/sitio', hotelControllers.prueba)
-    // .post('/sumar', calculadoraControllers.sumar)
-    // .post('/restar', calculadoraControllers.restar)
-    // .post('/multiplicar', calculadoraControllers.multiplicar)
+    .post('/sitio', hotelControllers.updateHabitacion)
+    .get('/getAll', hotelControllers.getAllHabitacion)
 
 module.exports = router;
