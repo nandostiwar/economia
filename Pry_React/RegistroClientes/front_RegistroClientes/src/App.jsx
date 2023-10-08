@@ -10,7 +10,6 @@ function App() {
   const [correo, setCorreo] = useState("");
   const [mensajeRespuesta, setMensajeRespuesta] = useState("");
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,7 +32,11 @@ function App() {
       console.log(response.body);
       if (response.ok) {
         setMensajeRespuesta("✅ Registro creado exitosamente");
-    
+        // Limpia los campos del formulario
+        setId("");
+        setNombre("");
+        setEdad("");
+        setCorreo("");
       } else {
         setMensajeRespuesta("❌ Error al registrar el cliente");
       }
@@ -52,16 +55,16 @@ function App() {
       <form onSubmit={handleSubmit}>
         <h2>Registro de Clientes</h2>
         <label>Cedula</label>
-        <input id="id" type="text" onChange={(e) => setId(e.target.value)} />
+        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
         <br />
         <label>Nombre</label>
-        <input type="text" onChange={(e) => setNombre(e.target.value)} />
+        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
         <br />
         <label>Edad</label>
-        <input type="number" onChange={(e) => setEdad(e.target.value)} />
+        <input type="number" value={edad} onChange={(e) => setEdad(e.target.value)} />
         <br />
         <label>Correo</label>
-        <input type="email" onChange={(e) => setCorreo(e.target.value)} />
+        <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
         <br />
         <input type="submit" value="Enviar" />
       </form>
