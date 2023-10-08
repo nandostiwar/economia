@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 function ListadoClientes() {
   const [clientes, setClientes] = useState([])
@@ -48,6 +49,9 @@ function ListadoClientes() {
           ))}
         </tbody>
       </table>
+      <Link to="/">
+        <input type="button" value="Regresar" />
+      </Link>
     </div>
   );
 }
