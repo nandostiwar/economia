@@ -1,35 +1,102 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [formData, setFormData] = useState({
+		nombre: "",
+		edad: "",
+		cedula: "",
+		correo: "",
+	});
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData({
+			...formData,
+			[name]: value,
+		});
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await fetch("/guardarDatos", {
+				method: "POST", // Usa el método POST
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formData),
+			});
+
+			if (response.ok) {
+				alert("Datos enviados exitosamente.");
+				setFormData({
+					nombre: "",
+					edad: "",
+					cedula: "",
+					correo: "",
+				});
+			} else {
+				alert("Hubo un error al enviar los datos.");
+			}
+		} catch (error) {
+			console.error(error);
+			alert(error);
+		}
+	};
+
+	return (
+		<div className="App">
+			<h1>Formulario</h1>
+			<form onSubmit={handleSubmit}>
+				<label>
+					Nombre:
+					<input
+						type="text"
+						name="nombre"
+						value={formData.nombre}
+						onChange={handleChange}
+						required
+					/>
+				</label>
+				<br />
+				<label>
+					Edad:
+					<input
+						type="text"
+						name="edad"
+						value={formData.edad}
+						onChange={handleChange}
+						required
+					/>
+				</label>
+				<br />
+				<label>
+					Cedula:
+					<input
+						type="text"
+						name="cedula"
+						value={formData.cedula}
+						onChange={handleChange}
+						required
+					/>
+				</label>
+				<br />
+				<label>
+					Correo:
+					<input
+						type="text"
+						name="correo"
+						value={formData.correo}
+						onChange={handleChange}
+						required
+					/>
+				</label>
+				<br />
+				<button type="submit">Enviar</button>
+			</form>
+		</div>
+	);
 }
 
-export default App
+export default App;
