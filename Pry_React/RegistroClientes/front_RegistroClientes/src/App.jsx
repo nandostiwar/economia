@@ -13,36 +13,40 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch(
-        "http://localhost:3500/v1/regisClientes/regisCliente",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id,
-            nombre,
-            edad,
-            correo,
-          }),
+    if (id !== "" && nombre !== "" && edad !== "" && correo !== "") {
+      try {
+        const response = await fetch(
+          "http://localhost:3500/v1/regisClientes/regisCliente",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id,
+              nombre,
+              edad,
+              correo,
+            }),
+          }
+        );
+        console.log(response.body);
+        if (response.ok) {
+          setMensajeRespuesta("✅ Registro creado exitosamente");
+          // Limpia los campos del formulario
+          setId("");
+          setNombre("");
+          setEdad("");
+          setCorreo("");
+        } else {
+          setMensajeRespuesta("❌ Error al registrar el cliente");
         }
-      );
-      console.log(response.body);
-      if (response.ok) {
-        setMensajeRespuesta("✅ Registro creado exitosamente");
-        // Limpia los campos del formulario
-        setId("");
-        setNombre("");
-        setEdad("");
-        setCorreo("");
-      } else {
+      } catch (error) {
+        console.error("❌ Error al enviar el formulario:", error);
         setMensajeRespuesta("❌ Error al registrar el cliente");
       }
-    } catch (error) {
-      console.error("❌ Error al enviar el formulario:", error);
-      setMensajeRespuesta("❌ Error al registrar el cliente");
+    } else{
+      setMensajeRespuesta("❌ Faltan campos por diligenciar");
     }
   };
 
@@ -52,26 +56,60 @@ function App() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h2>Registro de Clientes</h2>
-        <label>Cedula</label>
-        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-        <br />
-        <label>Nombre</label>
-        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-        <br />
-        <label>Edad</label>
-        <input type="number" value={edad} onChange={(e) => setEdad(e.target.value)} />
-        <br />
-        <label>Correo</label>
-        <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
-        <br />
-        <input type="submit" value="Enviar" />
-      </form>
-      {mensajeRespuesta && <p>{mensajeRespuesta}</p>}
-      <Link to="/ListadoClientes">
-        <input type="button" value="Ver tabla Clientes" />
-      </Link>
+      <div className="card">
+        <div className="card-header">
+          <h1>Registro de Clientes</h1>
+        </div>
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label">Cédula</label>
+              <input
+                className="form-control"
+                type="text"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Nombre</label>
+              <input
+                className="form-control"
+                type="text"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Edad</label>
+              <input
+                className="form-control"
+                type="number"
+                value={edad}
+                onChange={(e) => setEdad(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Correo</label>
+              <input
+                className="form-control"
+                type="email"
+                value={correo}
+                onChange={(e) => setCorreo(e.target.value)}
+              />
+            </div>
+            <input className="btn btn-primary" type="submit" value="Enviar" />
+            <Link to="/ListadoClientes">
+              <input
+                className="btn btn-secondary"
+                type="button"
+                value="Ver tabla Clientes"
+              />
+            </Link>
+          </form>
+          {mensajeRespuesta && <p>{mensajeRespuesta}</p>}
+        </div>
+      </div>
     </>
   );
 }
