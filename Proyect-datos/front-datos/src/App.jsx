@@ -7,47 +7,40 @@ function App() {
   const [edad, setEdad] = useState('');
   const [cedula, setCedula] = useState('');
   const [correo, setCorreo] = useState('');
-  const [datos, setDatos] = useState([]); // Aquí almacenaremos los datos como un array de objetos
 
 
   const navigate = useNavigate();
 
   const enviarDatos = () => {
 
-    // Crea un objeto con los datos actuales
-    const nuevoDato = {
-      nombre: nombre,
-      edad: edad,
-      cedula: cedula,
-      correo: correo,
-    };
+    //valida campos vacios
+    if(nombre !="" && edad !="" && correo !=""){
+      fetch(`http://localhost:4000/v1/datos/setDatos`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({nombre,edad,cedula,correo })
+      })
+        .then(res => res.json())
+        .then(responseData => {
+          if(responseData.message =="success"){
+            alert('Datos guardados');
+          }else{
+            alert('error al guardar los datos');
+          }
 
-    // Agrega el objeto al array de datos
-    setDatos([...datos, nuevoDato]);
+        });
 
-    fetch(`http://localhost:4000/v1/datos/setDatos`, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({nombre,edad,cedula,correo })
-    })
-      .then(res => res.json())
-      .then(responseData => {
-        if(responseData.message =="success"){
-          alert('Datos guardados');
-        }else{
-          alert('error al guardar los datos');
-        }
-
-      });
-
-
-    // Limpia los campos después de enviar los datos
-    setNombre('');
-    setEdad('');
-    setCedula('');
-    setCorreo('');
+      // Limpia los campos después de enviar los datos
+      setNombre('');
+      setEdad('');
+      setCedula('');
+      setCorreo('');
+    }else{
+      alert('Hay campos vacios');
+    }
   };
 
+  //redirije
   const atras = () => {
     navigate("/tabla");
   };
@@ -55,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Mi Aplicación React</h1>
+        <h1> Datos personales </h1>
       </header>
       <div className="App-form">
         <div>
@@ -95,7 +88,7 @@ function App() {
           />
         </div>
         <div>
-          <button onClick={enviarDatos}>Enviar</button>
+          <button onClick={enviarDatos}>Guardar</button>
           <button onClick={atras}>Datos</button>
         </div>
       </div>
