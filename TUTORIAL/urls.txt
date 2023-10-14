@@ -1,0 +1,11 @@
+MIRO:
+https://miro.com/welcomeonboard/YU1WM0dKbTQ5NmNkVEFpUkdiSnNhVEc3YWJ3aGxFeWJuSXVGdWZ4N0ppeGlCS3pCMGVQbkJRTG95Uno3ZVNnTXwzNDU4NzY0NTM0NjgyNDcwNDcxfDI=?share_link_id=731505977998
+
+Descarga PG
+https://www.postgresql.org/download/
+
+Descargar PGadmin
+https://www.pgadmin.org/download/pgadmin-4-windows/
+
+tutorial instalacion:
+https://www.youtube.com/watch?v=cHGaDfzJyY4&t=296s
