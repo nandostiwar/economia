@@ -10,7 +10,7 @@ const setDatos = async (req, res) => {
         // Ruta al archivo datos.json
         const datosJSONPath = path.join(__dirname, '../db/datos.json');
 
-        let datosObj = { datos: [] };
+        // let   = { datos: [] };
 
         try {
             // Intenta leer el archivo datos.json y parsearlo
@@ -36,12 +36,14 @@ const setDatos = async (req, res) => {
         await fs.writeFile(datosJSONPath, JSON.stringify(datosObj, null, 2), 'utf-8');
 
         res.json({
-            message: 'Datos guardados con éxito',
+            message: 'success',
         });
     } catch (error) {
         console.error('Error al guardar los datos:', error);
+
+        //Error interno del servidor
         res.status(500).json({
-            error: 'Error interno del servidor',
+            error: 'failure',
         });
     }
 };

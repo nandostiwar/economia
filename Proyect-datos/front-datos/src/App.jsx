@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import './App.css';
 
 function App() {
@@ -7,6 +8,9 @@ function App() {
   const [cedula, setCedula] = useState('');
   const [correo, setCorreo] = useState('');
   const [datos, setDatos] = useState([]); // Aquí almacenaremos los datos como un array de objetos
+
+
+  const navigate = useNavigate();
 
   const enviarDatos = () => {
 
@@ -28,20 +32,24 @@ function App() {
     })
       .then(res => res.json())
       .then(responseData => {
-          console.log(responseData);
+        if(responseData.message =="success"){
+          alert('Datos guardados');
+        }else{
+          alert('error al guardar los datos');
+        }
+
       });
 
 
     // Limpia los campos después de enviar los datos
-    // setNombre('');
-    // setEdad('');
-    // setCedula('');
-    // setCorreo('');
+    setNombre('');
+    setEdad('');
+    setCedula('');
+    setCorreo('');
   };
 
-  const handleTablaClick = () => {
-    // Aquí puedes realizar alguna acción cuando se hace clic en el botón "Tabla"
-    // Por ejemplo, puedes mostrar una tabla con los datos ingresados.
+  const atras = () => {
+    navigate("/tabla");
   };
 
   return (
@@ -88,7 +96,7 @@ function App() {
         </div>
         <div>
           <button onClick={enviarDatos}>Enviar</button>
-          <button onClick={handleTablaClick}>Tabla</button>
+          <button onClick={atras}>Datos</button>
         </div>
       </div>
     </div>
