@@ -1,0 +1,19 @@
+{
+  "habitaciones": [
+    {
+      "id": 1,
+      "nombre": "Habitación Estándar",
+      "disponible": true
+    },
+    {
+      "id": 2,
+      "nombre": "Habitación Doble",
+      "disponible": true
+    },
+    {
+      "id": 3,
+      "nombre": "Suite",
+      "disponible": true
+    }
+  ]
+}
