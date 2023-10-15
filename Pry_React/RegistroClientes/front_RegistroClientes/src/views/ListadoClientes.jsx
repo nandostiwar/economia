@@ -20,6 +20,37 @@ function ListadoClientes() {
     };
     obtenerListClientes();
   }, []);
+  
+  const handleEliminarCliente = (id) => {
+    if (window.confirm("¿Estás seguro de que deseas eliminar este cliente?")) {
+      eliminarCliente(id);
+    }
+  };
+  
+  const eliminarCliente = async (id) => {
+    try {
+      console.log("enviando delete cliente Id = "+id)
+      const response = await fetch(
+        `http://localhost:3500/v1/regisClientes/eliminarCliente/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.ok) {
+        console.log("✅ Cliente eliminado exitosamente");
+        // Aquí puedes actualizar tu lista de clientes si es necesario
+      } else if (response.status === 404) {
+        console.log("❌ Cliente no encontrado");
+      } else {
+        console.log("❌ Error al eliminar el cliente");
+      }
+    } catch (error) {
+      console.error("❌ Error al eliminar el cliente:", error);
+    }
+  };
 
   if (clientes.length === 0) {
     return <p>Cargando...</p>;
@@ -32,13 +63,14 @@ function ListadoClientes() {
       </div>
 
       <div className="card-body">
-        <table>
+        <table className="table table-striped table-hover">
           <thead>
             <tr>
-              <th>Cédula</th>
-              <th>Nombre</th>
-              <th>Email</th>
-              <th>Correo</th>
+              <th scope="col">Cédula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Opciones</th>
             </tr>
           </thead>
           <tbody>
@@ -48,6 +80,10 @@ function ListadoClientes() {
                 <td>{nombre}</td>
                 <td>{edad}</td>
                 <td>{correo}</td>
+                <td>
+                  <i className="bi bi-pencil-square"></i>
+                  <i className="bi bi-trash-fill" onClick={() => handleEliminarCliente(id)}></i>
+                </td>
               </tr>
             ))}
           </tbody>

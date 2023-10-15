@@ -1,32 +1,16 @@
-/* Estilos para la tabla */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 1em 0; /* Espacio en la parte superior e inferior de la tabla */
-  }
-  
-  table, th, td {
-    border: 1px solid black; /* Bordes para la tabla, celdas de encabezado y celdas de datos */
-  }
-  
-  /* Estilos para el encabezado de la tabla */
-  th {
-    background-color: #f2f2f2; /* Color de fondo para el encabezado */
-    text-align: left;
-    padding: 8px; /* Espacio en el interior de las celdas del encabezado */
-  }
-  
-  /* Estilos para las celdas de datos */
-  td {
-    text-align: left;
-    padding: 8px; /* Espacio en el interior de las celdas de datos */
-  }
-  
-  /* Estilos para la tarjeta que contiene la tabla */
-  .card {
-    width: 80%;
-    margin: 0 auto; /* Centrar la tarjeta en la página */
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra en la tarjeta */
-  }
-  
+.card {
+  width: 80%;
+  margin: 0 auto; /* Centrar la tarjeta en la página */
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra en la tarjeta */
+}
+i{
+  margin: 10px 10px;
+  font-size:larger;
+}
+.bi-trash-fill{
+  color: red;
+}
+.bi-pencil-square{
+  color: blue;
+}
