@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid"; // Importa la librería UUID
 
 const CrearVenta = () => {
-  const [producto, setProducto] = useState("");
+  const [productos, setProductos] = useState([]);
+  const [productoSeleccionado, setProductoSeleccionado] = useState("");
   const [cantidad, setCantidad] = useState("");
   const [mensajeRespuesta, setMensajeRespuesta] = useState("");
 
   const crearVenta = async (e) => {
     e.preventDefault();
 
-    if (producto !== "" && cantidad !== "") {
+    if (productoSeleccionado !== "" && cantidad !== "") {
+      const producto = productoSeleccionado
+      const id = uuidv4(); // Genera un UUID único
+      console.log("id generado: ",id)
       try {
         const response = await fetch(
           "http://localhost:3500/v1/restaurante/crearVenta",
@@ -19,6 +24,7 @@ const CrearVenta = () => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
+              id,
               producto,
               cantidad,
             }),
@@ -27,9 +33,6 @@ const CrearVenta = () => {
         console.log(response.body);
         if (response.ok) {
           setMensajeRespuesta("✅ Registro creado exitosamente");
-          // Limpia los campos del formulario
-          setProducto("");
-          setCantidad("");
         } else {
           setMensajeRespuesta("❌ Error al registrar la Venta");
         }
@@ -42,19 +45,38 @@ const CrearVenta = () => {
     }
   };
 
+  // Llamar al servidor y obtener la lista de productos
+  useEffect(() => {
+    const obtenerProductos = async () => {
+      const response = await fetch(
+        "http://localhost:3500/v1/restaurante/getProductos"
+      );
+      const data = await response.json();
+      setProductos(data.productos);
+    };
+    console.log("prod. seleccionado:",productoSeleccionado)
+
+    obtenerProductos(); 
+  }, []);
+
   return (
     <div>
       <h1>Módulo Mesero</h1>
       <h2>Restaurante</h2>
       <div>
         <h3>Crear Venta</h3>
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="ingresa el Producto..."
-          onChange={(e) => setProducto(e.target.value)}
-        />
+
+        <select
+          value={productoSeleccionado}
+          onChange={(e) => setProductoSeleccionado(e.target.value)}
+        >
+          <option value="">Selecciona un producto</option>
+          {productos.map((producto, index) => (
+            <option key={index} value={producto.producto}>
+              {producto.producto}
+            </option>
+          ))}
+        </select>
         <input
           type="number"
           name=""
@@ -63,9 +85,9 @@ const CrearVenta = () => {
           onChange={(e) => setCantidad(e.target.value)}
         />
         <div>
-        <Link to="/">
-          <button>Regresar</button>
-        </Link>
+          <Link to="/">
+            <button>Regresar</button>
+          </Link>
           <button onClick={crearVenta}>Crear Venta</button>
         </div>
       </div>

@@ -40,8 +40,8 @@ const ListadoVentas = () => {
             </tr>
           </thead>
           <tbody>
-            {ventas.map(({ producto, cantidad }) => (
-              <tr key={producto}>
+            {ventas.map(({ id, producto, cantidad }) => (
+              <tr key={id}>
                 <td>{producto}</td>
                 <td>{cantidad}</td>
                </tr>
