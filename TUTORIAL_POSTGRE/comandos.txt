@@ -1,0 +1,38 @@
+npm i express
+
+npm i pg
+
+node src/app.js
+
+nodemon src/app.js
+
+
+npm i nodemon -D
+
+
+
+CREATE TABLE clientes (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(40)
+);
+
+CREATE TABLE productos (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(40),
+    precio NUMERIC(10, 2)
+);
+
+CREATE TABLE compras (
+    id SERIAL PRIMARY KEY,
+    cliente_id INT,        
+    producto_id INT,       
+    fecha_compra DATE
+);
+
+ALTER TABLE compras
+ADD CONSTRAINT fk_cliente
+FOREIGN KEY (cliente_id) REFERENCES clientes(id);
+
+ALTER TABLE compras
+ADD CONSTRAINT fk_producto
+FOREIGN KEY (producto_id) REFERENCES productos(id);
