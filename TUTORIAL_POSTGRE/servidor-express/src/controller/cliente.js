@@ -25,8 +25,7 @@ const getClienteById = async (req, res) => {
 const createCliente = async (req, res) => {
     
     const { nombre } = req.body;
-
-    if(nombre) return;
+    // if(nombre) return;
     
     const response = await pool.query('INSERT INTO clientes (nombre) VALUES ($1)', [nombre]);
     
