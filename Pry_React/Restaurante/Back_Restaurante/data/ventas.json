@@ -1,0 +1,12 @@
+{
+  "ventas": [
+    {
+      "producto": "Ajiaco",
+      "cantidad": "5"
+    },
+    {
+      "producto": "Sancocho",
+      "cantidad": "2"
+    }
+  ]
+}
