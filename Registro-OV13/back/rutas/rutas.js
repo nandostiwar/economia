@@ -3,8 +3,7 @@ const rutas = express.Router();
 const controladores = require('./controladores/controladores.js');
 
 rutas
-    .get('/',controladores.getHabitaciones)
-    .patch('/:habitacion',controladores.editarEstado)
-    
+    .get('/',controladores.getDatos)
+    .patch('/:id',controladores.registrar)
 
-module.exports = rutas;
+module.exports = rutas

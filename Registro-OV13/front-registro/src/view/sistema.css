@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.cuerpo-registro{
+    width: 500px;
+    background: #d8ecea;
+    border-radius: 20px;
+    padding: 10px;
+}
+button{
+    width: 100px;
+    padding: 10px;
+}

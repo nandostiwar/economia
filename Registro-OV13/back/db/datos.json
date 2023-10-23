@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombre": "Oswal",
+    "edad": "22",
+    "cedula": "100000000",
+    "correo": "O@a"
+  },
+  {
+    "id": 2,
+    "nombre": "Kiara",
+    "edad": "2",
+    "cedula": "1551",
+    "correo": "a@s"
+  }
+]
