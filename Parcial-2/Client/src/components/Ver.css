@@ -1,0 +1,17 @@
+/* Tabla.css */
+.mi-tabla {
+    border-collapse: collapse; /* Para eliminar el espacio entre las celdas */
+    width: 100%; /* Ancho total de la tabla */
+  }
+  
+  .mi-tabla th,
+  .mi-tabla td {
+    border: 1px solid #ddd; /* Borde alrededor de las celdas */
+    padding: 8px; /* Espacio dentro de las celdas */
+    text-align: center; /* Centrar el contenido horizontalmente */
+  }
+  
+  .mi-tabla th {
+    background-color: #3b3b3b; /* Color de fondo para las celdas de encabezado */
+  }
+  
