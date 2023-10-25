@@ -13,11 +13,11 @@ function App() {
     fetch(`http://localhost:3000/usuario/getUser`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({user,password })
+        body: JSON.stringify({user })
       })
         .then(res => res.json())
         .then(responseData => {
-          if (user == responseData[0].usuario && password == responseData[0].password){
+          if (user == responseData[0].usuario ){
             navigate("/admin");
           }else{
             alert("Usuario incorrecto");
@@ -42,14 +42,14 @@ function App() {
             onChange={(e) => setUser(e.target.value)}
           />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="password">Contraseña:</label>
           <input
             type="password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
+        </div> */}
         <button type="button" onClick={validar_user}>Iniciar sesión</button>
       </form>
     </div>
