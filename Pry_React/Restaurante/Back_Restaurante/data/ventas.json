@@ -34,6 +34,11 @@
       "id": "7501a9da-a49d-4817-999c-8d6610cd9d2f",
       "producto": "Sancocho",
       "cantidad": "2"
+    },
+    {
+      "id": "df4b7990-12c7-4909-842b-fbee227a6d27",
+      "producto": "Frijolada",
+      "cantidad": "3"
     }
   ]
 }

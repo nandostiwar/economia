@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const App = () => {
   const [username, setUsername] = useState('');
+  const [mensajeRespuesta, setMensajeRespuesta] = useState("");
   const goTo = useNavigate();
 
   const validateUser = async (event) => {
@@ -23,14 +24,16 @@ const App = () => {
           // El usuario tiene el rol de mesero
           goTo("/CrearVenta");
         } else {
-          console.log("Usuario no válido");
+          setMensajeRespuesta("❌ Usuario incorrecto");
         }
         
       } catch (error) {
-        console.error("Error al validar usuario Login:", error);
+        setMensajeRespuesta("⚠️ Algo ocurrió al validar el usuario");
+        console.error("❌ Error al validar usuario Login:", error);
       }
     } else {
-      console.log("Debe diligenciar el campo usuario");
+      setMensajeRespuesta("❌ Debe diligenciar el campo usuario");
+      console.log("❌ Debe diligenciar el campo usuario");
     }
   };
 
@@ -47,8 +50,9 @@ const App = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <br></br>
-        <br></br>
+        <br />
+      {mensajeRespuesta && <p>{mensajeRespuesta}</p>}
+      <br />
         <button className="btn btn-primary" id="iniciar" type="submit">Iniciar Sesión</button>
       </form>
     </div>
