@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import '../App.css'
 
 const Admin = () => {
   const [user, setUser] = useState("");
@@ -137,12 +138,13 @@ const Admin = () => {
   };
 
   return (
-    <div>
+    <div className="card">
       <h1>Módulo Admin</h1>
       <h2>Restaurante</h2>
-      <div>
+      <div className="card">
         <h3>Gestión de Usuarios</h3>
         <input
+          className="form-control"
           type="text"
           name=""
           id=""
@@ -150,6 +152,7 @@ const Admin = () => {
           onChange={(e) => setUser(e.target.value)}
         />
         <input
+          className="form-control"
           type="text"
           name=""
           id=""
@@ -157,6 +160,7 @@ const Admin = () => {
           onChange={(e) => setNombre(e.target.value)}
         />
         <input
+          className="form-control"
           type="number"
           name=""
           id=""
@@ -164,17 +168,22 @@ const Admin = () => {
           onChange={(e) => setRol(e.target.value)}
         />
         <div>
-          <button onClick={crearUsuario}>Crear Nuevo</button>
+          <button className="btn btn-success" onClick={crearUsuario}>
+            Crear Nuevo
+          </button>
           <Link to="/ListadoUsuarios">
-            <button>Ver Usuarios</button>
+            <button className="btn btn-info">Ver Usuarios</button>
           </Link>
-          <button onClick={eliminarUsuario}>Eliminar</button>
+          <button className="btn btn-danger" onClick={eliminarUsuario}>
+            Eliminar
+          </button>
         </div>
       </div>
-
-      <div>
+      <br />
+      <div className="card">
         <h3>Gestión de Productos</h3>
         <input
+          className="form-control"
           type="text"
           name=""
           id=""
@@ -182,6 +191,7 @@ const Admin = () => {
           onChange={(e) => setProducto(e.target.value)}
         />
         <input
+          className="form-control"
           type="number"
           name=""
           id=""
@@ -189,11 +199,15 @@ const Admin = () => {
           onChange={(e) => setValor(e.target.value)}
         />
         <div>
-          <button onClick={crearProducto}>Crear Nuevo</button>
+          <button className="btn btn-success" onClick={crearProducto}>
+            Crear Nuevo
+          </button>
           <Link to="/ListadoProductos">
-            <button>Ver Productos</button>
+            <button className="btn btn-info">Ver Productos</button>
           </Link>
-          <button onClick={eliminarProducto}>Eliminar</button>
+          <button className="btn btn-danger" onClick={eliminarProducto}>
+            Eliminar
+          </button>
         </div>
       </div>
       <br />
@@ -201,10 +215,14 @@ const Admin = () => {
       <br />
       <div>
         <Link to="/">
-          <button>Regresar</button>
+          <button className="btn btn-secondary" type="button">
+            Regresar
+          </button>
         </Link>
         <Link to="/ListadoVentas">
-          <button>Ver Ventas</button>
+          <button className="btn btn-info" type="button">
+            Ver Ventas
+          </button>
         </Link>
       </div>
     </div>

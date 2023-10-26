@@ -35,10 +35,12 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="card">
       <h1>Login</h1>
+      <br></br>
       <form onSubmit={validateUser}>
         <input
+          className="form-control"
           id="input"
           type="text"
           placeholder="Usuario"
@@ -47,7 +49,7 @@ const App = () => {
         />
         <br></br>
         <br></br>
-        <button id="iniciar" type="submit">Iniciar</button>
+        <button className="btn btn-primary" id="iniciar" type="submit">Iniciar Sesión</button>
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid"; // Importa la librería UUID
+import '../App.css'
 
 const CrearVenta = () => {
   const [productos, setProductos] = useState([]);
@@ -60,13 +61,14 @@ const CrearVenta = () => {
   }, []);
 
   return (
-    <div>
+    <div className="card">
       <h1>Módulo Mesero</h1>
       <h2>Restaurante</h2>
-      <div>
+      <div className="card">
         <h3>Crear Venta</h3>
 
         <select
+        className="form-select"
           value={productoSeleccionado}
           onChange={(e) => setProductoSeleccionado(e.target.value)}
         >
@@ -78,6 +80,7 @@ const CrearVenta = () => {
           ))}
         </select>
         <input
+        className="form-control"
           type="number"
           name=""
           id=""
@@ -86,9 +89,9 @@ const CrearVenta = () => {
         />
         <div>
           <Link to="/">
-            <button>Regresar</button>
+            <button className="btn btn-secondary" >Regresar</button>
           </Link>
-          <button onClick={crearVenta}>Crear Venta</button>
+          <button className="btn btn-success" onClick={crearVenta}>Crear Venta</button>
         </div>
       </div>
 

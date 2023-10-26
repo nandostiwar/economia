@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const ListadoVentas = () => {
   const [ventas, setVentas] = useState([]);
+  const [valorTotalTodasLasVentas, setValorTotalTodasLasVentas] = useState(0);
 
   useEffect(() => {
     const obtenerListVentas = async () => {
@@ -13,6 +14,13 @@ const ListadoVentas = () => {
         const data = await response.json();
         console.log(data.ventas);
         setVentas(data.ventas);
+
+        // Calcular el valor total de todas las ventas
+        const valorTotal = data.ventas.reduce((total, venta) => {
+          return total + venta.vTotalVenta;
+        }, 0);
+
+        setValorTotalTodasLasVentas(valorTotal);
       } catch (error) {
         console.error("Error al obtener las ventas:", error);
       }
@@ -42,22 +50,27 @@ const ListadoVentas = () => {
             </tr>
           </thead>
           <tbody>
-            {ventas.map(({ id, producto, cantidad, valorUnitario, vTotalVenta }) => (
-              <tr key={id}>
-                <td>{producto}</td>
-                <td>{cantidad}</td>
-                <td>$ {valorUnitario}</td>
-                <td>$ {vTotalVenta}</td>
-               </tr>
-            ))}
+            {ventas.map(
+              ({ id, producto, cantidad, valorUnitario, vTotalVenta }) => (
+                <tr key={id}>
+                  <td>{producto}</td>
+                  <td>{cantidad}</td>
+                  <td>$ {valorUnitario}</td>
+                  <td>$ {vTotalVenta}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
+
+        <p>Valor total de ventas: <strong>$ {valorTotalTodasLasVentas}</strong></p> 
+
         <Link to="/Admin">
-          <button>Regresar</button>
+          <button className="btn btn-secondary">Regresar</button>
         </Link>
       </div>
     </div>
   );
 };
 
-export default ListadoVentas
+export default ListadoVentas;
