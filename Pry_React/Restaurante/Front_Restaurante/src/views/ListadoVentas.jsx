@@ -35,21 +35,25 @@ const ListadoVentas = () => {
         <table className="table table-striped table-hover">
           <thead>
             <tr>
-              <th scope="col">Descripción Producto</th>
+              <th scope="col">Producto</th>
               <th scope="col">Cantidad</th>
+              <th scope="col">Valor Unidad</th>
+              <th scope="col">Valor Total</th>
             </tr>
           </thead>
           <tbody>
-            {ventas.map(({ id, producto, cantidad }) => (
+            {ventas.map(({ id, producto, cantidad, valorUnitario, vTotalVenta }) => (
               <tr key={id}>
                 <td>{producto}</td>
                 <td>{cantidad}</td>
+                <td>$ {valorUnitario}</td>
+                <td>$ {vTotalVenta}</td>
                </tr>
             ))}
           </tbody>
         </table>
         <Link to="/Admin">
-          <input className="btn btn-secondary" type="button" value="Regresar" />
+          <button>Regresar</button>
         </Link>
       </div>
     </div>

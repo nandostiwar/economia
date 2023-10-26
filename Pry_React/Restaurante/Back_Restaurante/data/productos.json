@@ -3,6 +3,22 @@
     {
       "producto": "Ajiaco",
       "valor": "35000"
+    },
+    {
+      "producto": "Sancocho",
+      "valor": "19000"
+    },
+    {
+      "producto": "Frijolada",
+      "valor": "21000"
+    },
+    {
+      "producto": "Lasagna",
+      "valor": "39000"
+    },
+    {
+      "producto": "Churrasco",
+      "valor": "45000"
     }
   ]
 }

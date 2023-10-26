@@ -43,13 +43,13 @@ const ListadoProductos = () => {
             {productos.map(({ producto, valor }) => (
               <tr key={producto}>
                 <td>{producto}</td>
-                <td>{valor}</td>
+                <td>$ {valor}</td>
                </tr>
             ))}
           </tbody>
         </table>
         <Link to="/Admin">
-          <input className="btn btn-secondary" type="button" value="Regresar" />
+          <button>Regresar</button>
         </Link>
       </div>
     </div>

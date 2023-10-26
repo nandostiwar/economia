@@ -51,7 +51,7 @@ const ListadoUsuarios = () => {
           </tbody>
         </table>
         <Link to="/Admin">
-          <input className="btn btn-secondary" type="button" value="Regresar" />
+          <button>Regresar</button>
         </Link>
       </div>
     </div>

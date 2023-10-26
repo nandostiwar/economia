@@ -1,10 +1,37 @@
 {
   "ventas": [
     {
+      "id": "1",
       "producto": "Ajiaco",
       "cantidad": "5"
     },
     {
+      "id": "2",
+      "producto": "Sancocho",
+      "cantidad": "2"
+    },
+    {
+      "id": "3",
+      "producto": "Frijolada",
+      "cantidad": "1"
+    },
+    {
+      "id": "4",
+      "producto": "Ajiaco",
+      "cantidad": "7"
+    },
+    {
+      "id": "5",
+      "producto": "Sancocho",
+      "cantidad": "2"
+    },
+    {
+      "id": "aa0b4a02-6d08-40ef-9973-934d3f4bf8b9",
+      "producto": "Lasagna",
+      "cantidad": "2"
+    },
+    {
+      "id": "7501a9da-a49d-4817-999c-8d6610cd9d2f",
       "producto": "Sancocho",
       "cantidad": "2"
     }
