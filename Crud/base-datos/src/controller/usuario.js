@@ -35,10 +35,10 @@ const createUser = async (req, res) => {
     }
 };
 
-//consulta los usuarios en la base de datos
+//consulta los USUARIOS en la base de datos
 const getUserAll = async (req, res) => {
     try {
-        const response = await pool.query("SELECT id_usuario,usuario,CASE WHEN rol= 1 then 'Admin' ELSE 'Mesero' END AS roles FROM usuarios ");
+        const response = await pool.query("SELECT id_usuario AS id, usuario AS camp_1, CASE WHEN rol= 1 then 'Admin' ELSE 'Mesero' END AS camp_2 FROM usuarios ");
         res.status(200).json(response.rows);
     } catch (error) {
         console.error("Error en la consulta a la base de datos:", error);
@@ -46,62 +46,29 @@ const getUserAll = async (req, res) => {
     }
 };
 
-const getClienteById = async (req, res) => {
-
-    const id = parseInt(req.params.id);
-    
-    const response = await pool.query('SELECT * FROM clientes WHERE id = $1', [id]);
-    
-    if (response.rows.length > 0) {
-
-        res.json(response.rows);
-    } else {
-
-        res.json({ message: 'No se encontró ningún cliente con el ID proporcionado.' });
-    }
-};
-
-
-
-const updateCliente = async (req, res) => {
-
-    const id = parseInt(req.params.id);
-    
-    const { nombre } = req.body;
-
-    const response =await pool.query('UPDATE clientes SET nombre = $1 WHERE id = $2', [
-        nombre,
-        id
-    ]);
-
-    if (response.rowCount > 0) {
-        
-        res.json('Se actualizó correctamente el cliente.');
-    } else {
-        
-        res.json('No se pudo actualizar el cliente. Es posible que no se encontrara el registro con el ID proporcionado.');
-    }
-};
-
-const deleteCliente = async (req, res) => {
+const deleteUser = async (req, res) => {
     
     const id = parseInt(req.params.id);
-    
-    const response = await pool.query('DELETE FROM clientes where id = $1', [
-        id
-    ]);
-    
-    if (response.rowCount > 0) {
-        res.json(`El cliente de id: ${id} se eliminó correctamente.`);
-    } else {
-        res.status(404).json(`No se encontró ningún cliente con el ID: ${id}`);
+    try {
+        const response = await pool.query('DELETE FROM usuarios where id_usuario = $1', [id]);
+        if (response.rowCount > 0) {
+            res.json({
+                estado: 'ok',
+                mensaje: `El cliente de id: ${id} se eliminó correctamente.`
+            });
+        } else {
+            res.status(404).json(`No se encontró ningún cliente con el ID: ${id}`);
+        }
+    } catch (error) {
+        console.error("Error en la consulta a la base de datos:", error);
+        res.status(500).json({ error: "Error en la consulta a la base de datos" });
     }
+
 };
 
 module.exports = {
     getUsuario,
     getUserAll,
     createUser,
-    updateCliente,
-    deleteCliente
+    deleteUser
 };
