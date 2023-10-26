@@ -11,7 +11,7 @@ function Waiter() {
 
     const [id, setID] = useState("");
     const [cantidad, setCantidad] = useState("");
-    const [productoVenta, setProductoVenta] = useState([]);
+    // const [productoVenta, setProductoVenta] = useState([]);
     
     
 
@@ -27,34 +27,12 @@ function Waiter() {
 
     
 
-    const handleSubmit= async ()=>
-    {
-        try {
-            
-          
-
-             await fetch(`http://localhost:5000/products/${id}`)
-            .then(response => response.json())
-            .then(data => setProductoVenta(data))       
-            .catch(error => console.error('no funca', error));
-            
-          
-            
-            
-        } catch (error) {
-            console.error(error.message);
-        }
-      
-     
-    }
 
     const upload = async (e) =>
     {
 
         e.preventDefault();
-
-        await handleSubmit();
-
+        
         try {
             await fetch(`http://localhost:5000/create_order`,
             {
@@ -65,10 +43,8 @@ function Waiter() {
                 },
                 body: JSON.stringify(
                     {
-                       
-                        product:productoVenta.product,
-                        amount:cantidad,
-                        price: productoVenta.price
+                        ID:id,
+                        amount:cantidad           
                     }
                 )
             })
@@ -127,7 +103,7 @@ function Waiter() {
         <button type='submit'>Añadir producto</button>
     <br></br>
 
-        <label>{`${productoVenta.product_id}`}</label>
+        {/* <label>{`${productoVenta.product_id}`}</label> */}
         
         </form>
 

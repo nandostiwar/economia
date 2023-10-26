@@ -11,6 +11,7 @@ import EditarP from './EditarP';
 import BorrarP from './BorrarP';
 import'./Admins.css'
 import Venta from '../venta';
+import TotalSell from '../totalSell';
 
 function Admin() {
 
@@ -75,7 +76,7 @@ function Admin() {
                                 {
                                     if(VerV)
                                     {
-                                        return <Venta />
+                                        return <TotalSell />
                                     }
                                 }
                             }

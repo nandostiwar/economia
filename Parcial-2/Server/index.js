@@ -97,6 +97,30 @@ app.delete("/delete/:id", async (req, res) =>
     //#endregion USUARIOS
 
 //#region PRODUCTOS
+
+app.get("/sellings", async (req, res) =>
+{
+    try {
+        
+        const ventas = await pool.query("SELECT * FROM sellings");
+        res.json(ventas.rows);
+
+    } catch (error) {
+        console.error(error);
+    }
+})
+app.get("/sum", async (req, res) =>
+{
+    try {
+        
+        const ventas = await pool.query("SELECT SUM(CAST(total as INT)) FROM sellings");
+        res.json(ventas.rows[0]);
+
+    } catch (error) {
+        console.error(error);
+    }
+})
+
         //Create a product 
 app.post("/create_product", async (req, res) =>
 {
@@ -186,16 +210,25 @@ app.delete("/delete_product/:id", async (req, res) =>
 //ROUTES USER
 //#region 
 //Create an order 
+
+app.get
+
 app.post("/create_order", async (req, res) =>
 {
 
+
     try {
 
+        const {ID} = req.body;
+          
+
+        const productoVenta = await pool.query("SELECT product, price FROM products WHERE product_id = $1",[ID]);
+        const product = productoVenta.rows[0].product;
+        const price = productoVenta.rows[0].price;       
        //  const {username} = req.body; ----> son lo mismo
-       const {product} = req.body;
-       const {amount} = req.body;
-       const {price} = req.body;
+       const {amount} = req.body;      
        const total = parseInt(amount) * parseInt(price);
+
 
 
        const newSell = await pool.query("INSERT INTO sellings (product, amount, price, total) VALUES($1, $2, $3, $4) RETURNING *",
