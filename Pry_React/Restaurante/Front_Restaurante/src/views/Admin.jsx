@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import '../App.css'
+import "../App.css";
 
 const Admin = () => {
   const [user, setUser] = useState("");
@@ -14,7 +14,7 @@ const Admin = () => {
   const crearUsuario = async (e) => {
     e.preventDefault();
 
-    if (user !== "" && rol !== "") {
+    if (user !== "" && (rol !== "" || rol > 0)) {
       try {
         const response = await fetch(
           "http://localhost:3500/v1/restaurante/crearUsuario",
@@ -159,14 +159,23 @@ const Admin = () => {
           placeholder="ingresa el Nombre"
           onChange={(e) => setNombre(e.target.value)}
         />
-        <input
+        {/* <input
           className="form-control"
           type="number"
           name=""
           id=""
           placeholder="ingresa el Rol"
           onChange={(e) => setRol(e.target.value)}
-        />
+        /> */}
+        <select
+          className="form-select"
+          value={rol}
+          onChange={(e) => setRol(e.target.value)}
+        >
+          <option value="0">Selecciona un Rol</option>
+          <option value="1">Administrador</option>
+          <option value="2">Mesero</option>
+        </select>
         <div>
           <button className="btn btn-success" onClick={crearUsuario}>
             Crear Nuevo
