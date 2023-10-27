@@ -62,8 +62,8 @@ function Admin() {
     };
 
     useEffect(() => {
-    getUsuario();
-    getProducto();
+        getUsuario();
+        getProducto();
     }, []);
 
     return (

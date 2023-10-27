@@ -38,7 +38,7 @@ const createUser = async (req, res) => {
 //consulta los USUARIOS en la base de datos
 const getUserAll = async (req, res) => {
     try {
-        const response = await pool.query("SELECT id_usuario AS id, usuario AS camp_1, CASE WHEN rol= 1 then 'Admin' ELSE 'Mesero' END AS camp_2 FROM usuarios ");
+        const response = await pool.query("SELECT id_usuario AS id, usuario , CASE WHEN rol= 1 then 'Admin' ELSE 'Mesero' END AS tipo FROM usuarios ");
         res.status(200).json(response.rows);
     } catch (error) {
         console.error("Error en la consulta a la base de datos:", error);

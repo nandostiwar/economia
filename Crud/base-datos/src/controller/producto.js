@@ -24,7 +24,7 @@ const createProducto = async (req, res) => {
 //consulta los PRODUCTOS en la base de datos
 const getProduAll = async (req, res) => {
     try {
-        const response = await pool.query("SELECT id_producto AS id, producto AS camp_1, precio AS camp_2 FROM productos ");
+        const response = await pool.query("SELECT id_producto AS id, producto, precio FROM productos ");
         res.status(200).json(response.rows);
     } catch (error) {
         console.error("Error en la consulta a la base de datos:", error);

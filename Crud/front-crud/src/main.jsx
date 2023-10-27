@@ -4,6 +4,8 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Admin from './components/Admin.jsx';
 import App from './App.jsx'
+import Mesero from './components/Mesero';
+import Reporte from './components/Reporte';
 
 const routes = [
   {
@@ -13,6 +15,14 @@ const routes = [
   {
     path: "/admin",
     element: <Admin/>,
+  },
+  {
+    path: "/mesero",
+    element: <Mesero/>,
+  },
+  {
+    path: "/reporte",
+    element: <Reporte/>,
   }
 ];
 

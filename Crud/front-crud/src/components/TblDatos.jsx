@@ -1,90 +1,87 @@
 import React, { useState, useEffect } from 'react';
 import './css/admin.css';
 
-function TblUsuarios({ cabecera, data, estado }) {
+function TblDatos({ cabecera, data, estado }) {
     const [datosTabla, setDatosTabla] = useState(null); // Cambia el estado inicial a null
 
-    if(estado == 'usuarios'){
-
-        //Array de datos para llenar la tabla USUARIOS
-        useEffect(() => {
+    useEffect(() => {
+        if(estado == 'usuarios'){
+            //Array de datos para llenar la tabla USUARIOS
             if (Array.isArray(data)) {
             const filasTabla = data.map((obj, index) => (
                 <tr key={index}>
-                <td style={{width:'200px'}}>
-                    <button onClick={() => eliminarUser(obj.id)} id='btn_eliminar'>Eliminar</button>
-                </td>
-                <td>{obj.camp_1}</td>
-                <td>{obj.camp_2}</td>
+                    <td style={{width:'200px'}}>
+                        <button onClick={() => eliminarDato('usuario',obj.id)} id='btn_eliminar'>Eliminar</button>
+                    </td>
+                    <td>{obj.usuario}</td>
+                    <td>{obj.tipo}</td>
                 </tr>
             ));
+            // Filtra elementos nulos o indefinidos
+            const filasFiltradas = filasTabla.filter((fila) => fila);
 
-            setDatosTabla(filasTabla);
+            setDatosTabla(filasFiltradas);
             } else {
-            console.error("data no es un array válido");
-            setDatosTabla(null); // Restablece el estado a null en caso de error
+                console.error("data no es un array válido");
+                setDatosTabla(null); // Restablece el estado a null en caso de error
             }
-        }, [data]);
-
-    }else if(estado == 'producto'){
+        }else if(estado == 'producto'){
             //Array de datos para llenar la tabla PRODUCTOS
-            useEffect(() => {
             if (Array.isArray(data)) {
             const filasTabla = data.map((obj, index) => (
                 <tr key={index}>
-                <td style={{width:'200px'}}>
-                    <button onClick={() => eliminarProd(obj.id)} id='btn_eliminar'>Eliminar</button>
-                </td>
-                <td>{obj.camp_1}</td>
-                <td>{obj.camp_2}</td>
+                    <td style={{width:'200px'}}>
+                        <button onClick={() => eliminarDato('producto',obj.id)} id='btn_eliminar'>Eliminar</button>
+                    </td>
+                    <td>{obj.producto}</td>
+                    <td>{obj.precio}</td>
                 </tr>
             ));
 
-            setDatosTabla(filasTabla);
+            // Filtra elementos nulos o indefinidos
+            const filasFiltradas = filasTabla.filter((fila) => fila);
+            setDatosTabla(filasFiltradas);
             } else {
-            console.error("data no es un array válido");
-            setDatosTabla(null); // Restablece el estado a null en caso de error
+                console.error("data no es un array válido");
+                setDatosTabla(null); // Restablece el estado a null en caso de error
             }
-        }, [data]);
-    }
+        }else if(estado == 'venta'){
+            //Array de datos para llenar la tabla VENTAS
+            if (Array.isArray(data)) {
+            const filasTabla = data.map((obj, index) => (
+                <tr key={index}>
+                    <td>{obj.producto}</td>
+                    <td>{obj.cantidad}</td>
+                </tr>
+            ));
 
-    //Funcion que elimina un USUARIOS
-    const eliminarUser = (id) => {
-        const confirmacion = window.confirm("¿Estás seguro de que deseas eliminar este elemento?");
-
-        if (confirmacion) {
-            fetch(`http://localhost:3000/usuario/delete/${id}`, {
-                method: 'DELETE'
-                })
-                .then(res => res.json())
-                .then(responseData => {
-                    if(responseData.estado == 'ok'){
-                        window.location.reload();
-                        alert("Usuario Eliminado");
-                    }
-            });
-        } else {
-            console.log("No se realizó la eliminación.");
+            // Filtra elementos nulos o indefinidos
+            const filasFiltradas = filasTabla.filter((fila) => fila);
+            setDatosTabla(filasFiltradas);
+            } else {
+                console.error("data no es un array válido");
+                setDatosTabla(null); // Restablece el estado a null en caso de error
+            }
         }
-    };
-
-    //Funcion que elimina un PRODUCTOS
-    const eliminarProd = (id) => {
-        const confirmacion = window.confirm("¿Estás seguro de que deseas eliminar este elemento?");
+    }, [data,estado]);
+    
+    // Función genérica para eliminar un registros
+    const eliminarDato = (tipo, id) => {
+        const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar este ${tipo}?`);
 
         if (confirmacion) {
-            fetch(`http://localhost:3000/producto/delete/${id}`, {
+            fetch(`http://localhost:3000/${tipo}/delete/${id}`, {
                 method: 'DELETE'
-                })
+            })
                 .then(res => res.json())
                 .then(responseData => {
-                    if(responseData.estado == 'ok'){
+                    if (responseData.estado === 'ok') {
+                        alert(`${tipo.charAt(0).toUpperCase() + tipo.slice(1)} Eliminado`);
                         window.location.reload();
-                        alert("Producto Eliminado");
                     }
-            });
+                });
         } else {
-            console.log("No se realizó la eliminación.");
+            console.log(`No se realizó la eliminación de ${tipo}.`);
         }
     };
 
@@ -105,4 +102,4 @@ function TblUsuarios({ cabecera, data, estado }) {
     );
     }
 
-export default TblUsuarios;
+export default TblDatos;
