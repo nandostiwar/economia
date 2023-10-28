@@ -13,14 +13,13 @@ const getUsuario = async (req, res) => {
     }
 };
 
-
 //funcion que guarda los usuarios en la db
 const createUser = async (req, res) => {
     
     const { user,rol } = req.body;
     
     try {
-        const response = await pool.query('INSERT INTO usuarios (usuario,rol,fecha_crea) VALUES ($1,$2,current_timestamp)', [user,rol]);
+        const response = await pool.query('INSERT INTO usuarios (usuario,rol) VALUES ($1,$2)', [user,rol]);
         if (response.rowCount === 1) {
             res.json({
                 message: 'ok',
@@ -46,6 +45,7 @@ const getUserAll = async (req, res) => {
     }
 };
 
+//funcion que eliminar un usuario
 const deleteUser = async (req, res) => {
     
     const id = parseInt(req.params.id);

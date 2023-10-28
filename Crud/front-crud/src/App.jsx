@@ -1,33 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './App.css'
 
 function App() {
   const [user, setUser] = useState('');
-  const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
 
+  //funcion que valida el usuario ingresado
   const validar_user = () => {
 
     fetch(`http://localhost:3000/usuario/getUser`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({user })
+        body: JSON.stringify({user})
       })
         .then(res => res.json())
         .then(responseData => {
           if (user == responseData[0].usuario ){
-            navigate("/admin");
+            if(responseData[0].rol == 1){
+              navigate("/admin");
+            }else{
+              navigate("/mesero");
+            }
           }else{
             alert("Usuario incorrecto");
             setUser("");
-            setPassword("");
           }
           
         });
-
-
   }
 
   return (
@@ -42,14 +43,6 @@ function App() {
             onChange={(e) => setUser(e.target.value)}
           />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div> */}
         <button type="button" onClick={validar_user}>Iniciar sesión</button>
       </form>
     </div>

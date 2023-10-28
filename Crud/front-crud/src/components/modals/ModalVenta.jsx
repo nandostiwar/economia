@@ -10,7 +10,6 @@ function ModalVenta(props) {
 
     // Función que se ejecuta para consultar los datos de PRODUCTOS
     const getProducto = () => {
-        // useEffect(() => {
         fetch(`http://localhost:3000/venta/getProdAll`)
             .then(res => res.json())
             .then(data => {   
@@ -21,7 +20,6 @@ function ModalVenta(props) {
                 ));  
                 setOpciones(opcionSelect);
             });
-        // }, []);
     };
 
     //Funcion que guarda las VENTAS
@@ -37,6 +35,7 @@ function ModalVenta(props) {
                     if(responseData.message == 'ok'){
                         alert("Usuario agregado");
                         props.onClose(); // Cierra el modal
+                        props.ventas();
                     }
                 });
             }else{

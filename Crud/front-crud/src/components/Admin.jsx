@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import './css/admin.css'
 import ModalUser from './modals/ModalUser';
 import TblDatos from './TblDatos';
@@ -14,52 +15,61 @@ function Admin() {
     const [dataUsu, setDataUsu] = useState({ datos: [] }); // Array datos USUARIOS
     const [dataprod, setDataProd] = useState({ datos: [] }); // Array datos PRODUCTOS
 
-    //Funciones de modal User
+    const navigate = useNavigate();
+
+    //abre el  modal User
     const openModalUser = () => {
         setIsModalOpenUser(true);
     };
 
+    //cierra el modal User
     const closeModalUser = () => {
         setIsModalOpenUser(false);
     };
 
 
-    //Funciones de modal productos
+    //abre el modal producto
     const openModalProduct = () => {
         setIsModalOpenPro(true);
     };
 
+    //cierra el modal producto
     const closeModalPro = () => {
         setIsModalOpenPro(false);
     };
 
 
-    // Función que se ejecuta para consultar los datos de USUARIOS
+    // Función que consulta los datos de USUARIOS
     const getUsuario = () => {
-        // useEffect(() => {
         fetch(`http://localhost:3000/usuario/getUserAll`)
             .then(res => res.json())
             .then(data => {
                 setDataUsu(data);
             });
-        // }, []);
     }
 
-        // Función que se ejecuta para consultar los datos de PRODUCTOS
-        const getProducto = () => {
-            // useEffect(() => {
-            fetch(`http://localhost:3000/producto/getProduAll`)
-                .then(res => res.json())
-                .then(data => {    
-                    setDataProd(data);    
-                });
-            // }, []);
-        }
+    // Función que se ejecuta para consultar los datos de PRODUCTOS
+    const getProducto = () => {
+        fetch(`http://localhost:3000/producto/getProduAll`)
+            .then(res => res.json())
+            .then(data => {    
+                setDataProd(data);    
+            });
+    }
     
     //activa el tab
     const handleTabClick = (tabIndex) => {
         setActiveTab(tabIndex);
     };
+
+    //funcion de regresar al login
+    const atras = () => {
+        navigate("/");
+    };
+
+    const reporte = () =>{
+        navigate("/reporte");
+    }
 
     useEffect(() => {
         getUsuario();
@@ -80,10 +90,14 @@ function Admin() {
                 <button onClick={() => handleTabClick(1)} className={`tab-button ${activeTab === 1 ? 'active' : ''}`}>Tabla Producto</button>
             </div>
 
+            <button className='btn_volver' onClick={atras}>Salir</button>
+            <button className='btn_reporte' onClick={reporte}>Ver reporte</button>
+
             {/* Modal de usuario */}
             <ModalUser
             isOpen={isModalOpenUser}
             onClose={closeModalUser}
+            user={getUsuario}
             title="Usuarios"
             />
 
@@ -91,6 +105,7 @@ function Admin() {
             <ModalProducto
             isOpen={isModalOpenPro}
             onClose={closeModalPro}
+            produ={getProducto}
             title="Productos"
             />
         
@@ -112,8 +127,6 @@ function Admin() {
                 />      
             }
         </div>
-
-
     </div>
     );
 }

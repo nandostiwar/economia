@@ -22,7 +22,7 @@ function TblDatos({ cabecera, data, estado }) {
 
             setDatosTabla(filasFiltradas);
             } else {
-                console.error("data no es un array válido");
+                console.log("data no es un array válido");
                 setDatosTabla(null); // Restablece el estado a null en caso de error
             }
         }else if(estado == 'producto'){
@@ -42,7 +42,7 @@ function TblDatos({ cabecera, data, estado }) {
             const filasFiltradas = filasTabla.filter((fila) => fila);
             setDatosTabla(filasFiltradas);
             } else {
-                console.error("data no es un array válido");
+                console.log("data no es un array válido");
                 setDatosTabla(null); // Restablece el estado a null en caso de error
             }
         }else if(estado == 'venta'){
@@ -59,7 +59,7 @@ function TblDatos({ cabecera, data, estado }) {
             const filasFiltradas = filasTabla.filter((fila) => fila);
             setDatosTabla(filasFiltradas);
             } else {
-                console.error("data no es un array válido");
+                console.log("data no es un array válido");
                 setDatosTabla(null); // Restablece el estado a null en caso de error
             }
         }
@@ -87,17 +87,16 @@ function TblDatos({ cabecera, data, estado }) {
 
     return (
         <div className="admin-container">
-        <div className="buttons-container"></div>
-        <table className="data-table">
-            <thead>
-            <tr>
-                {cabecera.map((info, index) => (
-                <th key={index}>{info}</th>
-                ))}
-            </tr>
-            </thead>
-            <tbody>{datosTabla}</tbody> {/* Renderiza datosTabla aquí */}
-        </table>
+            <table className="data-table">
+                <thead>
+                <tr>
+                    {cabecera.map((info, index) => (
+                    <th key={index}>{info}</th>
+                    ))}
+                </tr>
+                </thead>
+                <tbody>{datosTabla}</tbody>
+            </table>
         </div>
     );
     }

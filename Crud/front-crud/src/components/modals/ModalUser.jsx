@@ -19,6 +19,7 @@ function ModalUser(props) {
                     if(responseData.message == 'ok'){
                         alert("Usuario agregado");
                         props.onClose(); // Cierra el modal
+                        props.user(); 
                     }
                 });
             }else{
@@ -27,17 +28,17 @@ function ModalUser(props) {
         }
 
 
-return (
+    return (
     <Modal
         isOpen={props.isOpen}
         onRequestClose={props.onClose}
         className="react-modal" // Aplica la clase de estilos al modal
         overlayClassName="react-modal-overlay" // Aplica la clase de estilos al fondo del modal
     >
-      
+
         <h2 style={{textAlign:'center'}} >{props.title}</h2>
         <div className="login-form">
- 
+
             <div className="form-group">
                 <label htmlFor="email">Usuario:</label>
                 <input

@@ -63,4 +63,14 @@
     background-color: #e74c3c; /* Color de fondo del botón activo */
   }
   
+  .btn_volver{
+    padding: 10px 15px;
+    margin: 25px;
+    background-color: #1da34a
+  }
+
+  .btn_reporte{
+    padding: 10px 15px;
+    background-color: #35199b
+  }
   
