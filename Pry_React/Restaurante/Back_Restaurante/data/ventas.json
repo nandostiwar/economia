@@ -39,6 +39,11 @@
       "id": "df4b7990-12c7-4909-842b-fbee227a6d27",
       "producto": "Frijolada",
       "cantidad": "3"
+    },
+    {
+      "id": "8452cb4b-83a0-41dd-8093-cd7a2251a14f",
+      "producto": "Ajiaco",
+      "cantidad": "5"
     }
   ]
 }
