@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LoginForm from '../components/LoginForm';
 
-const LoginPage = () => {
+
+const LoginPage = ({ setUserRole, setIsAuthenticated }) => {
+
   return (
     <div>
       <h1>Iniciar sesión</h1>
-      <LoginForm />
+      <LoginForm setUserRole={setUserRole} setIsAuthenticated={setIsAuthenticated} /> {/* Pasa setUserRole a LoginForm */}
     </div>
   );
 };
