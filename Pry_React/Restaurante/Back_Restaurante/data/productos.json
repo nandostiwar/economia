@@ -19,6 +19,10 @@
     {
       "producto": "Churrasco",
       "valor": "45000"
+    },
+    {
+      "producto": "Sopa",
+      "valor": "10000"
     }
   ]
 }

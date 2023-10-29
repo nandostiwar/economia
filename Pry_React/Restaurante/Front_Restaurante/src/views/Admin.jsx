@@ -100,14 +100,18 @@ const Admin = () => {
         }
       );
       if (response.ok) {
+        setMensajeRespuesta("✅ Usuario eliminado exitosamente");
         console.log("✅ Usuario eliminado exitosamente");
       } else if (response.status === 404) {
+        setMensajeRespuesta("❌ Usuario no encontrado. Ingrese un usuario válido");
         console.log("❌ Usuario no encontrado");
       } else {
+        setMensajeRespuesta("❌ Error al eliminar el Usuario");
         console.log("❌ Error al eliminar el Usuario");
       }
     } catch (error) {
-      console.error("❌ Error al eliminar el Usuario:", error);
+      setMensajeRespuesta("❌ Error al eliminar el Usuario");
+      console.log("❌ Error al eliminar el Usuario");
     }
   };
 
@@ -125,14 +129,18 @@ const Admin = () => {
         }
       );
       if (response.ok) {
+        setMensajeRespuesta("✅ Producto eliminado exitosamente")
         console.log("✅ Producto eliminado exitosamente");
         // Aquí puedes actualizar tu lista de clientes si es necesario
       } else if (response.status === 404) {
+        setMensajeRespuesta("❌ Producto no encontrado")
         console.log("❌ Producto no encontrado");
       } else {
+        setMensajeRespuesta("❌ Error al eliminar el Producto")
         console.log("❌ Error al eliminar el Producto");
       }
     } catch (error) {
+      setMensajeRespuesta("❌ Error al eliminar el Producto: ", error)
       console.error("❌ Error al eliminar el Producto:", error);
     }
   };

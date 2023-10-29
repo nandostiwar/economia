@@ -44,6 +44,11 @@
       "id": "8452cb4b-83a0-41dd-8093-cd7a2251a14f",
       "producto": "Ajiaco",
       "cantidad": "5"
+    },
+    {
+      "id": "d2201fe0-96b4-4dcc-983c-8f7ecbe64fb7",
+      "producto": "Sopa",
+      "cantidad": "3"
     }
   ]
 }
