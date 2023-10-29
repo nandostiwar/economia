@@ -5,6 +5,7 @@ import UserPage from './pages/UserPage';
 import ManageProducts from './pages/ManageProducts';
 import ManageVentas from './pages/ManageVentas';
 import MostrarVentas from './pages/MostrarVentas';
+import Navbar from './components/Navbar';
 
 function App() {
   const [userRole, setUserRole] = useState(''); // 'admin' | 'user' | '';
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route
           path="/"
@@ -52,7 +54,7 @@ function App() {
           path="/ventas"
           element={
             authenticated ? (
-              userRole === 'admin' || userRole === 'user' ? <ManageVentas /> : <Navigate to="/ventas" />
+              userRole === 'admin' ? <ManageVentas /> : <Navigate to="/ventas" />
             ) : (
               <Navigate to="/" />
             )
