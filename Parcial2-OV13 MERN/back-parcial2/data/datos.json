@@ -1,0 +1,17 @@
+[
+  {
+    "id": 3,
+    "usuario": "c",
+    "rol": "user"
+  },
+  {
+    "id": 4,
+    "usuario": "d",
+    "rol": "user"
+  },
+  {
+    "id": 5,
+    "usuario": "e",
+    "rol": "user"
+  }
+]
