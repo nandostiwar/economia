@@ -1,0 +1,24 @@
+{
+  "usuarios": [
+    {
+      "user": "admin",
+      "nombre": "Nando",
+      "rol": "1"
+    },
+    {
+      "user": "mesero",
+      "nombre": "Sebastian",
+      "rol": "2"
+    },
+    {
+      "user": "user",
+      "nombre": "Mesero adicional",
+      "rol": "2"
+    },
+    {
+      "user": "root",
+      "nombre": "Super Admin",
+      "rol": "1"
+    }
+  ]
+}
