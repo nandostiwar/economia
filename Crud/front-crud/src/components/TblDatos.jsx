@@ -11,10 +11,11 @@ function TblDatos({ cabecera, data, estado }) {
             const filasTabla = data.map((obj, index) => (
                 <tr key={index}>
                     <td style={{width:'200px'}}>
-                        <button onClick={() => eliminarDato('usuario',obj.id)} id='btn_eliminar'>Eliminar</button>
+                        {/* <button onClick={() => eliminarDato('usuario',obj.id)} id='btn_eliminar'>Eliminar</button> campo de posgres */}
+                        <button onClick={() => eliminarDato('usuario',obj._id)} id='btn_eliminar'>Eliminar</button>
                     </td>
                     <td>{obj.usuario}</td>
-                    <td>{obj.tipo}</td>
+                    <td>{obj.rol}</td>
                 </tr>
             ));
             // Filtra elementos nulos o indefinidos
@@ -31,7 +32,8 @@ function TblDatos({ cabecera, data, estado }) {
             const filasTabla = data.map((obj, index) => (
                 <tr key={index}>
                     <td style={{width:'200px'}}>
-                        <button onClick={() => eliminarDato('producto',obj.id)} id='btn_eliminar'>Eliminar</button>
+                        {/* <button onClick={() => eliminarDato('producto',obj.id)} id='btn_eliminar'>Eliminar</button> campo de posgres */}
+                        <button onClick={() => eliminarDato('producto',obj._id)} id='btn_eliminar'>Eliminar</button>
                     </td>
                     <td>{obj.producto}</td>
                     <td>{obj.precio}</td>

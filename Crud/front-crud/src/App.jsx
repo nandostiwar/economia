@@ -17,8 +17,13 @@ function App() {
       })
         .then(res => res.json())
         .then(responseData => {
-          if (user == responseData[0].usuario ){
-            if(responseData[0].rol == 1){
+          console.log(responseData['usuario']);
+
+          // if (user == responseData[0].usuario ){ //validacion con posgres
+          if (user == responseData['usuario']){ // validacion con mongodb
+            
+            // if(responseData[0].rol == 1){ //validacion con posgres
+            if(responseData['rol'] == 1){ // validacion con mongodb 
               navigate("/admin");
             }else{
               navigate("/mesero");

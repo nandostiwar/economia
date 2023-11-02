@@ -16,7 +16,9 @@ function ModalUser(props) {
                 })
                 .then(res => res.json())
                 .then(responseData => {
-                    if(responseData.message == 'ok'){
+
+                    // if(responseData.message == 'ok'){ //validacion posgres
+                    if(responseData.status == 'ok'){ //validacion mongo
                         alert("Usuario agregado");
                         props.onClose(); // Cierra el modal
                         props.user(); 
