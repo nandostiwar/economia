@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const ventaSchema = new mongoose.Schema({
-    producto: Number,
+    producto: String,
     cantidad: Number
 }, {
     collection: 'venta' // Especifica el nombre de la colección

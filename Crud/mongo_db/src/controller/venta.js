@@ -3,13 +3,18 @@ const { connectDB } = require('../conexion/conexion.js'); // Importa el módulo 
 
 connectDB(); // Llama a la función para establecer la conexión
 
-const venta = mongoose.model('venta'); // Asegúrate de que has definido el modelo 'User' en tu archivo de conexión
+const venta = mongoose.model('venta');
+const producto = mongoose.model('producto'); 
 
 //consulta los PRODUCTOS en la base de datos
 const getProduAll = async (req, res) => {
     try {
-        const response = await pool.query("SELECT * FROM productos ");
-        res.status(200).json(response.rows);
+        const prod = await producto.find({});
+        if (prod.length > 0) {
+            res.status(200).json(prod);
+        } else {
+            res.status(404).json({ error: "No se encontraron ventas" });
+        }
     } catch (error) {
         console.error("Error en la consulta a la base de datos:", error);
         res.status(500).json({ error: "Error en la consulta a la base de datos" });
@@ -23,18 +28,19 @@ const createVenta = async (req, res) => {
     const { cantidad, productoId } = req.body
 
     try {
-        const response = await pool.query('INSERT INTO ventas (cantidad,id_producto) VALUES ($1,$2)', [cantidad,productoId]);
-        if (response.rowCount === 1) {
-            res.json({
-                message: 'ok',
-                body: {
-                    cliente: { productoId }
-                }
-            });
-        }
+        const newVenta = new venta({ producto: productoId, cantidad });
+        await newVenta.save();
+
+        res.json({
+            message: 'Venta creado con éxito',
+            status: 'ok',
+            body: {
+                venta: newVenta
+            }
+        });
     } catch (error) {
-        console.error("Error en la consulta a la base de datos:", error);
-        res.status(500).json({ error: "Error al agregar el cliente" });
+        console.error("Error al agregar el venta:", error);
+        res.status(500).json({ error: "Error al agregar el usuario" });
     }
 };
 
