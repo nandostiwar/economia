@@ -12,13 +12,19 @@ function ModalVenta(props) {
     const getProducto = () => {
         fetch(`http://localhost:3000/venta/getProdAll`)
             .then(res => res.json())
-            .then(data => {   
+            .then(data => {     
+                
+                const options = data.map((da, index) => (
+                    <option key={da._id} value={da._id}>{da.producto}</option>
+                ));
+
                 
                 //crea las opciones para el select de PRODUCTOS
-                const opcionSelect = data.map((obj, index) => (
-                    <option key={index} value={obj.id_producto}>{obj.producto}</option>
-                ));  
-                setOpciones(opcionSelect);
+                // const opcionSelect = data.map((obj, index) => (
+                //     <option key={index} value={obj.id_producto}>{obj.producto}</option>
+                // ));  
+                
+                setOpciones(options);
             });
     };
 
@@ -32,11 +38,16 @@ function ModalVenta(props) {
                 })
                 .then(res => res.json())
                 .then(responseData => {
-                    if(responseData.message == 'ok'){
-                        alert("Usuario agregado");
+                    if(responseData.status == 'ok'){
+                        alert("Venta agregado");
                         props.onClose(); // Cierra el modal
                         props.ventas();
                     }
+                    // if(responseData.message == 'ok'){
+                    //     alert("Usuario agregado");
+                    //     props.onClose(); // Cierra el modal
+                    //     props.ventas();
+                    // }
                 });
             }else{
                 alert("Hay campos vacios");
