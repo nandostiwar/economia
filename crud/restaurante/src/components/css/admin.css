@@ -1,0 +1,76 @@
+.admin-container {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #aaa;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  .buttons-container {
+    margin: 20px 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  thead {
+    background-color: #f0f0f0;
+  }
+  
+  .tab-buttons{
+    margin-top: 30px;
+  }
+  
+  .tab-button {
+    background-color: #3498db; /* Color de fondo de los botones */
+    color: #fff; /* Color del texto de los botones */
+    border: none;
+    padding: 5px 10px; /* Ajusta el tamaño de los botones */
+    margin: 5px;
+    cursor: pointer;
+    
+  }
+  
+  .tab-button.active {
+    background-color: #e74c3c; /* Color de fondo del botón activo */
+  }
+  
+  .btn_volver{
+    padding: 10px 15px;
+    margin: 25px;
+    background-color: #1da34a
+  }
+
+  .btn_reporte{
+    padding: 10px 15px;
+    background-color: #35199b
+  }
+  
