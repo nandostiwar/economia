@@ -1,4 +1,9 @@
 const { response, request } = require ('express');
+const bcryptjs = require ('bcryptjs');
+
+
+const Usuario = require ('../models/usuario');
+
 
 const usuariosGet = (req=request, res=response) => {
 
@@ -9,25 +14,45 @@ const usuariosGet = (req=request, res=response) => {
     });
 }
 
-const usuariosPost = (req, res=response) => {
+const usuariosPost = async (req, res=response) => {
 
-    const {nombre, edad} = req.body;
+    const {nombre, correo, password, rol} = req.body;
+    const usuario = new Usuario ({nombre, correo, password, rol});
+
+    //Encriptar contraseña
+    //Esta funcion permite encryptar la contraseña
+    //genSaltSync() son las vueltas que deben de dar para desencriptar
+    //por defecto viene en 10 se puede agrandar pero se demora mas en resolver
+    const salt = bcryptjs.genSaltSync();
+    //Aqui la encrypto
+    //hashSync sirve para encryptar en una sola via 
+    // y me pide la contraseña y el numero de vueltas
+    usuario.password = bcryptjs.hashSync( password, salt );
+
+    //Guardo el usuario
+    await usuario.save();
 
     res.status(201).json({
         msg: 'post Api',
-        nombre,
-        edad
+        usuario
     });
 }
 
-const usuariosPut = (req, res=response) => {
+const usuariosPut = async(req, res=response) => {
     
     const { id } = req.params;
+    const { _id, password, google, correo, ...resto } = req.body;
+
+    //TODO validar contra base de datos 
+    if ( password) {
+        //Encriptar la contraseña
+        const salt = bcryptjs.genSaltSync();
+        resto.password = bcryptjs.hashSync( password, salt );
+    }
+
+    const usuario = await Usuario.findByIdAndUpdate (id, resto);
     
-    res.json({
-        msg: 'put Api',
-        id
-    });
+    res.json(usuario);
 }
 
 const usuariosPatch = (req, res=response) => {
