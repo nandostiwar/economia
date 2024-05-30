@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+body {
+  font-family: sans-serif, 'roboto';
+  margin: 0;
+}
+header .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header nav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 25px;
+}
+modifico aqui 
+#mensajes-final {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  height: 90vh;
+  color: white;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0,0,0,0.5),
+      rgba(0,0,0,0.5)
+  )
+  ,url("media/Recurso1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+#mensaje-final h1{
+  color:  green;
+}
+
+#entrada .carta{
+  background-size: cover;
+  background-position: center center;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 15px;
+
+}
+
+#imagenes .container{
+  text-align: center;
+  padding: 200px 12px;
+}
+#imagenes h3{
+  font-family: sans-serif, 'roboto';
+  text-align: center;
+  color: black;
+  transition: all .5s ease;
+  transform: scale(0);
+  min-height: 50px;
+  margin-bottom: 0;
+}
+
+h1.titulo {
+  font-size: 3.5em;
+  margin: 50px auto 80px auto;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+h1#msg-final {
+  text-align: center;
+  color: crimson;
+  transition: all .5s ease;
+  transform: scale(0);
+  min-height: 50px;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 50px auto 80px auto;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+button {
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 0px 13px;
+  border-radius: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  background-color: green;
+}
+
+.zoom-in {
+  transform: scale(1) !important;
+}
+
+#acierto {
+  text-align: center;
+  min-height: 24px;
+  transform: scale(0);
+}
+
+.acierto {
+  animation: zoomInOut 1s ease;
+}
+
+.rojo {
+  color: red;
+}
+
+.verde {
+  color: green;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+h2.palabra {
+  margin: 0 auto 25px auto;
+  text-align: center;
+  color: royalblue;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+
+.no-wrap {
+  flex-wrap: nowrap !important;
+}
+
+.col {
+  width: 50%;
+  text-align: center;
+}
+
+#turnos h3 {
+  margin: auto;
+}
+
+h3 span {
+  color: orangered;
+}
+
+.letra:disabled {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+picture {
+  position: absolute;
+}
+
+picture img {
+  position: absolute;
+  top: -203px;
+  left: -205px;
+  height: 225px;
+}
+
+#image5,
+#image4,
+#image3,
+#image2,
+#image1,
+#image0 {
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+.encuadre {
+  border: 2px dashed crimson;
+  padding: 3px 2px 2px 6px;
+}
